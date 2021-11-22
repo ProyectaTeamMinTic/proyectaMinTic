@@ -1,15 +1,7 @@
-# Boilerplate para el proyecto de Misión TIC - Ciclo 4 UdeA 2021
+# Proyecto misionTic 
 
-### ¿Cómo usar este proyecto?
+### Team: Proyecta
 
-Paso 1: clonar el proyecto
+Esto es un modelo de sistema de información que soporte la gestión de proyectos de investigación y mejora los procesos. 
 
-`git clone `
 
-Paso 2: navegar hacia la carpeta e instalar dependencias
-
-`yarn install`
-
-Paso 3: ejecutar el proyecto
-
-`yarn start`
