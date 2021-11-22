@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from 'media/Logo_sin_texto.png';
 
 const SidebarLinks = () => {
   return (
@@ -16,8 +17,8 @@ const SidebarLinks = () => {
 const Logo = () => {
   return (
     <div className='py-3 w-full flex flex-col items-center justify-center'>
-      <img src='logo.png' alt='Logo' className='h-16' />
-      <span className='my-2 text-xl font-bold text-center'>Título de Mi Aplicación</span>
+      <img src={logo} alt='Logo' className='h-32' />
+      <span className='my-2 text-4xl font-bold text-center '>Proyecta</span>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const IndexUsuarios = () => {
 
   return (
     <div>
-      Datos Usuarios:
+      <div><h3 className="text-center">Usuarios:</h3></div>
       <table className='tabla'>
         <thead>
           <tr>
