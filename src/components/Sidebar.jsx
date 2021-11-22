@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from 'media/Logo_sin_texto.png';
 
 const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
-      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-user' />
-      <SidebarRoute to='/page2' title='Pagina2' icon='fas fa-smile-wink' />
-      <SidebarRoute to='/category1' title='Catego 1' icon='fab fa-amazon' />
-      <SidebarRoute to='/category1/page1' title='Test' icon='fas fa-car' />
+      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-users' />
+      <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/' title='Cerrar Sesiòn' icon='fas fa-sign-out-alt' />
     </ul>
   );
 };
@@ -68,7 +67,7 @@ const SidebarRoute = ({ to, title, icon }) => {
         to={to}
         className={({ isActive }) =>
           isActive
-            ? 'sidebar-route text-white bg-indigo-700'
+            ? 'sidebar-route text-white bg-indigo-600'
             : 'sidebar-route text-gray-900 hover:text-white hover:bg-indigo-400'
         }
       >
