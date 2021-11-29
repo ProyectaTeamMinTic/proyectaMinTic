@@ -9,9 +9,11 @@ const SidebarLinks = () => {
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
       {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
-      <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-users' />
+      <SidebarRoute to='/users' title='Usuarios' icon='fas fa-users' />
       {/* </PrivateComponent> */}
-      <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/projects' title='Proyectos' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/progresses/list' title='Avances' icon='fas fa-tasks' />
+      <SidebarRoute to='/registrations/list' title='Inscripciones' icon='far fa-address-card' />
       <Logout />
     </ul>
   );
