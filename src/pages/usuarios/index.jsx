@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_USUARIOS } from 'graphql/usuarios/queries';
-import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
-import { Enum_Rol, Enum_EstadoUsuario } from 'utils/enum';
+import React, { useEffect } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_USUARIOS } from "graphql/usuarios/queries";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { Enum_Rol, Enum_EstadoUsuario } from "utils/enum";
 
 const IndexUsuarios = () => {
   const { data, error, loading } = useQuery(GET_USUARIOS);
 
   useEffect(() => {
-    console.log('data servidor', data);
+    console.log("data servidor", data);
   }, [data]);
 
   useEffect(() => {
     if (error) {
-      toast.error('Error consultando los usuarios');
+      toast.error("Error consultando los usuarios");
     }
   }, [error]);
 
@@ -22,8 +22,10 @@ const IndexUsuarios = () => {
 
   return (
     <div>
-      <div><h3 className="text-center">Usuarios:</h3></div>
-      <table className='tabla'>
+      <div>
+        <h3 className="text-center">Usuarios:</h3>
+      </div>
+      <table className="tabla">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -48,7 +50,7 @@ const IndexUsuarios = () => {
                   <td>{Enum_EstadoUsuario[u.estado]}</td>
                   <td>
                     <Link to={`/usuarios/editar/${u._id}`}>
-                      <i className='fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer' />
+                      <i className="fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer" />
                     </Link>
                   </td>
                 </tr>
