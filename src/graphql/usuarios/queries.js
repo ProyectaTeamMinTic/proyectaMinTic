@@ -17,12 +17,13 @@ const GET_USUARIOS = gql`
 const GET_USUARIO = gql`
   query User($id: String!) {
   User(_id: $id) {
-    nombre
     _id
+    nombre
     apellido
     identificacion
     correo
     rol
+    estado
   }
 }
 `;

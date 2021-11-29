@@ -22,13 +22,13 @@ const EditarUsuario = () => {
     variables: { _id },
   });
 
-  const [editarUsuario, { data: mutationData, loading: mutationLoading, error: mutationError }] =
+  const [updateUser, { data: mutationData, loading: mutationLoading, error: mutationError }] =
     useMutation(EDITAR_USUARIO);
 
   const submitForm = (e) => {
     e.preventDefault();
     delete formData.rol;
-    editarUsuario({
+    updateUser({
       variables: { _id, ...formData },
     });
   };
@@ -67,38 +67,38 @@ const EditarUsuario = () => {
           label='Nombre de la persona:'
           type='text'
           name='nombre'
-          defaultValue={queryData.Usuario.nombre}
+          defaultValue={queryData.User.nombre}
           required={true}
         />
         <Input
           label='Apellido de la persona:'
           type='text'
           name='apellido'
-          defaultValue={queryData.Usuario.apellido}
+          defaultValue={queryData.User.apellido}
           required={true}
         />
         <Input
           label='Correo de la persona:'
           type='email'
           name='correo'
-          defaultValue={queryData.Usuario.correo}
+          defaultValue={queryData.User.correo}
           required={true}
         />
         <Input
           label='Identificación de la persona:'
           type='text'
           name='identificacion'
-          defaultValue={queryData.Usuario.identificacion}
+          defaultValue={queryData.User.identificacion}
           required={true}
         />
         <DropDown
           label='Estado de la persona:'
           name='estado'
-          defaultValue={queryData.Usuario.estado}
+          defaultValue={queryData.User.estado}
           required={true}
           options={Enum_EstadoUsuario}
         />
-        <span>Rol del usuario: {queryData.Usuario.rol}</span>
+        <span>Rol del usuario: {queryData.User.rol}</span>
         <ButtonLoading
           disabled={Object.keys(formData).length === 0}
           loading={mutationLoading}
