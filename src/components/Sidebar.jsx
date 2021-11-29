@@ -1,23 +1,44 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import logo from 'media/Logo_sin_texto.png';
+import { NavLink } from 'react-router-dom';
+import logo from 'media/logo_blue.png';
+import { useAuth } from 'context/authContext';
+import PrivateComponent from './PrivateComponent';
 
 const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
+      {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
       <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-users' />
+      {/* </PrivateComponent> */}
       <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-file-invoice' />
-      <SidebarRoute to='/' title='Cerrar Sesiòn' icon='fas fa-sign-out-alt' />
+      <Logout />
     </ul>
   );
 };
 
+const Logout = () => {
+  const { setToken } = useAuth();
+  const deleteToken = () => {
+    console.log('eliminar token');
+    setToken(null);
+  };
+  return (
+    <li onClick={() => deleteToken()}>
+      <NavLink to='/auth/login' className='sidebar-route text-blue-700 hover:text-indigo-900'>
+        <div className='flex items-center'>
+          <i className='fas fa-sign-out-alt' />
+          <span className='text-sm  ml-2'>Cerrar Sesión</span>
+        </div>
+      </NavLink>
+    </li>
+  );
+};
 const Logo = () => {
   return (
     <div className='py-3 w-full flex flex-col items-center justify-center'>
       <img src={logo} alt='Logo' className='h-32' />
-      <span className='my-2 text-4xl font-bold text-center '>Proyecta</span>
+      <span className='my-2 text-4xl font-bold text-center text-blue-400'>Proyecta</span>
     </div>
   );
 };
@@ -27,7 +48,6 @@ const Sidebar = () => {
   return (
     <div className='flex flex-col md:flex-row flex-no-wrap md:h-full'>
       {/* Sidebar starts */}
-
       <div className='sidebar hidden md:flex'>
         <div className='px-8'>
           <Logo />
@@ -67,7 +87,7 @@ const SidebarRoute = ({ to, title, icon }) => {
         to={to}
         className={({ isActive }) =>
           isActive
-            ? 'sidebar-route text-white bg-indigo-600'
+            ? 'sidebar-route text-white bg-blue-600'
             : 'sidebar-route text-gray-900 hover:text-white hover:bg-indigo-400'
         }
       >
