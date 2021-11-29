@@ -9,7 +9,9 @@ const Index = () => {
           <Link>
             <center>
               <i className="fas fa-users fa-7x text-blue-500 hover:text-purple-500 text-decoration:none" />
-              <h1 className="text-blue-500 hover:text-purple-500">Usuarios</h1>
+              <h1 className="text-blue-500 hover:text-purple-500 text-decoration:none">
+                Usuarios
+              </h1>
             </center>
           </Link>
         </div>
