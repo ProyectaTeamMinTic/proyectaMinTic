@@ -21,7 +21,6 @@ const EditarUsuario = () => {
   } = useQuery(GET_USUARIO, {
     variables: { _id },
   });
-
   const [updateUser, { data: mutationData, loading: mutationLoading, error: mutationError }] =
     useMutation(EDITAR_USUARIO);
 
@@ -98,7 +97,7 @@ const EditarUsuario = () => {
           required={true}
           options={Enum_EstadoUsuario}
         />
-        <span>Rol del usuario: {queryData.User.rol}</span>
+        <span>Rol: {queryData.User.rol}</span>
         <ButtonLoading
           disabled={Object.keys(formData).length === 0}
           loading={mutationLoading}

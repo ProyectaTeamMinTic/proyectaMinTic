@@ -15,8 +15,8 @@ const GET_USUARIOS = gql`
 `;
 
 const GET_USUARIO = gql`
-  query User($id: String!) {
-  User(_id: $id) {
+  query User($_id: String!) {
+  User(_id: $_id) {
     _id
     nombre
     apellido
