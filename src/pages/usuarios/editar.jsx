@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 import DropDown from 'components/Dropdown';
 import { Enum_EstadoUsuario } from 'utils/enums';
+import { Enum_Rol } from 'utils/enums';
+import PrivateComponent from 'components/PrivateComponent';
 
 const EditarUsuario = () => {
   const { form, formData, updateFormData } = useFormData(null);
@@ -34,7 +36,7 @@ const EditarUsuario = () => {
 
   useEffect(() => {
     if (mutationData) {
-      toast.success('Usuario modificado correctamente');
+      toast.success('Usuario modificado con exito');
     }
   }, [mutationData]);
 
@@ -97,6 +99,15 @@ const EditarUsuario = () => {
           required={true}
           options={Enum_EstadoUsuario}
         />
+        <PrivateComponent roleList={['ADMINISTRADOR']}>
+          <DropDown
+            label='Rol de la persona:'
+            name='rol'
+            defaultValue={queryData.User.rol}
+            required={false}
+            options={Enum_Rol}
+          />
+        </PrivateComponent>
         <span>Rol: {queryData.User.rol}</span>
         <ButtonLoading
           disabled={Object.keys(formData).length === 0}
