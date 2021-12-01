@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Enum_Rol, Enum_EstadoUsuario } from 'utils/enums';
 import PrivateRoute from 'components/PrivateRoute';
 
-const IndexUsuarios = () => {
+const IndexUsers = () => {
   const { data, error, loading } = useQuery(GET_USUARIOS);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const IndexUsuarios = () => {
   );
 };
 
-export default IndexUsuarios;
+export default IndexUsers;

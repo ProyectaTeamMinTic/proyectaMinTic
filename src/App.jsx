@@ -10,8 +10,8 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Index from "pages/Index";
-import IndexUsuarios from "pages/users";
-import EditarUsuario from "pages/users/edit";
+import IndexUsers from "pages/users";
+import Profile from "pages/users/profile";
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
@@ -20,13 +20,13 @@ import Login from "pages/auth/login";
 import { AuthContext } from "context/authContext";
 import jwt_decode from "jwt-decode";
 import AddProgress from "pages/progresses/add";
-import ListProgress from "pages/progresses/list";
-import IndexProjects from "pages/projects";
+import IndexProgress from "pages/progresses/index";
+import IndexProjectsLeader from "pages/projects/indexL";
 import AddProject from "pages/projects/add";
-import ListProjects from "pages/projects/list";
 import UpdateProject from "pages/projects/update";
-import ListRegistrations from "pages/registrations/list";
-import ListUsers from "pages/users/list";
+import IndexRegistrations from "pages/registrations/index";
+import IndexProjectsAdmin from "pages/projects/indexA";
+import IndexProjectsStudent from "pages/projects/indexS";
 
 // import PrivateRoute from 'components/PrivateRoute';
 
@@ -84,20 +84,20 @@ function App() {
               <Route path="/" element={<PrivateLayout />}>
                 <Route path="" element={<Index />} />
                 <Route path="/progresses/add" element={<AddProgress />} />
-                <Route path="/progresses/list" element={<ListProgress />} />
+                <Route path="/progresses" element={<IndexProgress />} />
                 <Route path="/projects">
-                  <Route path="" element={<IndexProjects />} />
+                  <Route path="leader" element={<IndexProjectsLeader />} />
+                  <Route path="admin" element={<IndexProjectsAdmin />} />
+                  <Route path="student" element={<IndexProjectsStudent />} />
                   <Route path="add" element={<AddProject />} />
-                  <Route path="list" element={<ListProjects />} />
                   <Route path="update" element={<UpdateProject />} />
                 </Route>
                 <Route
-                  path="/registrations/list"
-                  element={<ListRegistrations />}
+                  path="/registrations"
+                  element={<IndexRegistrations />}
                 />
-                <Route path="/users" element={<IndexUsuarios />}>
-                  <Route path="edit/:_id" element={<EditarUsuario />} />
-                  <Route path="list" element={<ListUsers />} />
+                <Route path="/users" element={<IndexUsers />}>
+                  <Route path="profile/:_id" element={<Profile />} />
                 </Route>
               </Route>
               <Route path="/auth" element={<AuthLayout />}>

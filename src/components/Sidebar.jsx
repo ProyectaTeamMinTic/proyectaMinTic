@@ -11,9 +11,11 @@ const SidebarLinks = () => {
       {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
       <SidebarRoute to='/users' title='Usuarios' icon='fas fa-users' />
       {/* </PrivateComponent> */}
-      <SidebarRoute to='/projects' title='Proyectos' icon='fas fa-file-invoice' />
-      <SidebarRoute to='/progresses/list' title='Avances' icon='fas fa-tasks' />
-      <SidebarRoute to='/registrations/list' title='Inscripciones' icon='far fa-address-card' />
+      <SidebarRoute to='/projects/leader' title='Proyectos L' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/projects/admin' title='Proyecto A' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/projects/student' title='Proyectos E' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/registrations' title='Inscripciones' icon='far fa-address-card' />
+      <SidebarRoute to='/progresses' title='Avances' icon='fas fa-tasks' />
       <Logout />
     </ul>
   );
