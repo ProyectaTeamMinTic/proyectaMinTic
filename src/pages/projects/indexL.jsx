@@ -8,7 +8,8 @@ const IndexProjectsLeader = () => {
     return (
         <div>
             <div>
-                <h3 className="text-center text-2xl font-bold text-gray-900">Proyectos Lider</h3>
+                <h3 className="text-center text-2xl font-bold text-gray-900">Proyectos</h3>
+                <h5 className="pl-3 font-bold text-gray-900">Proyectos a cargo del lider </h5>
             </div>
             <table className="tabla">
                 <thead>
