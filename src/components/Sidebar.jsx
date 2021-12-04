@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from 'media/logo_blue.png';
 import { useAuth } from 'context/authContext';
-import PrivateComponent from './PrivateComponent';
+// import PrivateComponent from './PrivateComponent';
 
 const SidebarLinks = () => {
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
-      <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
-        <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-users' />
-      </PrivateComponent>
-      <SidebarRoute to='/page2' title='Proyectos' icon='fas fa-file-invoice' />
+      {/* <PrivateComponent roleList={['ADMINISTRADOR']}> */}
+      <SidebarRoute to='/users' title='Usuarios' icon='fas fa-users' />
+      {/* </PrivateComponent> */}
+      <SidebarRoute to='/projects/leader' title='Proyectos L' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/projects/admin' title='Proyecto A' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/projects/student' title='Proyectos E' icon='fas fa-file-invoice' />
+      <SidebarRoute to='/registrations' title='Inscripciones' icon='far fa-address-card' />
+      <SidebarRoute to='/progresses' title='Avances' icon='fas fa-tasks' />
       <Logout />
     </ul>
   );
