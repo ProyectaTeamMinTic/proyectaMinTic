@@ -1,6 +1,7 @@
 import DropDown from 'components/Dropdown';
 import Input from 'components/Input';
 import React from 'react'
+import ButtonLoading from 'components/ButtonLoading';
 import { Link } from 'react-router-dom';
 const AddProject = () => {
     return (
@@ -10,61 +11,50 @@ const AddProject = () => {
             </Link>
             <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Registrar nuevo proyecto</h1>
             <div>
-                <form className='grid grid-cols-4 gap-4 pl-3 pr-3'>
-                    <div className='col-start-1 '>
-                        <Input
-                            label='Nombre'
-                            type='text'
-                            name='nombre'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
-                    <div className='col-start-1 col-span-2'>
-                        <Input
-                            label='Objetivo generala'
-                            type='text'
-                            name='general'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
-                    <div className='col-start-1 col-span-2'>
-                        <Input
-                            label='Objetivo especifico'
-                            type='text'
-                            name='especifico'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            label='Presupuesto'
-                            type='number'
-                            name='presupuesto'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            label='Fecha fin'
-                            type='date'
-                            name='fechaFin'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            label='Fecha inicio'
-                            type='date'
-                            name='fechaInicio'
-                            defaultValue=''
-                            required={true}
-                        />
-                    </div>
+                <form className='flex flex-col items-center justify-center'>
+                    <Input
+                        label='Nombre'
+                        type='text'
+                        name='nombre'
+                        defaultValue=''
+                        required={true}
+                    />
+                    <Input
+                        label='Objetivo generala'
+                        type='text'
+                        name='general'
+                        defaultValue=''
+                        required={true}
+                    />
+                    <Input
+                        label='Objetivo especifico'
+                        type='text'
+                        name='especifico'
+                        defaultValue=''
+                        required={true}
+                    />
+                    <Input
+                        label='Presupuesto'
+                        type='number'
+                        name='presupuesto'
+                        defaultValue=''
+                        required={true}
+                    />
+                    <Input
+                        label='Fecha fin'
+                        type='date'
+                        name='fechaFin'
+                        defaultValue=''
+                        required={true}
+                    />
+
+                    <Input
+                        label='Fecha inicio'
+                        type='date'
+                        name='fechaInicio'
+                        defaultValue=''
+                        required={true}
+                    />
                     <DropDown
                         label=''
                         name='lider'
@@ -72,30 +62,26 @@ const AddProject = () => {
                         required={true}
                         options=''
                     />
-                    <div>
-                        <Input
-                            label='Identificacion lider'
-                            type='text'
-                            name='identificacion'
-                            defaultValue=''
-                            required={true}
+                    <Input
+                        label='Identificacion lider'
+                        type='text'
+                        name='identificacion'
+                        defaultValue=''
+                        required={true}
+                    />
+                    <div className='flex justify-around w-full'>
+                        <ButtonLoading
+                            disabled=''
+                            text='Crear'
+                        />
+                        <ButtonLoading
+                            disabled=''
+                            text='Cancelar'
                         />
                     </div>
-                    <div className='flex justify-around col-span-3'>
-                        <span class="sm:block">
-                            <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Crear
-                            </button>
-                        </span>
-                        <span class="sm:block">
-                            <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Cancelar
-                            </button>
-                        </span>
-                    </div>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
