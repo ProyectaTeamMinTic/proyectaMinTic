@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Enum_Rol, Enum_EstadoUsuario } from 'utils/enums';
 import PrivateRoute from 'components/PrivateRoute';
 
-const IndexUsuarios = () => {
+const IndexUsers = () => {
   const { data, error, loading } = useQuery(GET_USUARIOS);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const IndexUsuarios = () => {
                     <td>{Enum_Rol[u.rol]}</td>
                     <td>{Enum_EstadoUsuario[u.estado]}</td>
                     <td>
-                      <Link to={`/usuarios/editar/${u._id}`}>
+                      <Link to={`/users/edit/${u._id}`}>
                         <i className='fas fa-pen text-yellow-600 hover:text-yellow-400 cursor-pointer' />
                       </Link>
                     </td>
@@ -68,4 +68,4 @@ const IndexUsuarios = () => {
   );
 };
 
-export default IndexUsuarios;
+export default IndexUsers;
