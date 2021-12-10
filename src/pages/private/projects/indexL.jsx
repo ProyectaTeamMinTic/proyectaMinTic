@@ -15,12 +15,13 @@ const IndexProjectsLeader = () => {
     const userId = userData._id;
     console.log("data servidor proyecta", userId);
   }, [userData]);
-  
+
   const { _id } = useParams()
-  
+
   const { data, error, loading } = useQuery(GET_PROJECTSL, {
-    variables: { _id },
-  });
+
+  },
+  );
   useEffect(() => {
     if (error) {
       toast.error("Error consultando los usuarios");

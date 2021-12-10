@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const GET_PROJECTSL = gql`
-  query User($id: String!) {
-    User(_id: $id) {
+  query User($_id: String!) {
+    User(_id: $_id) {
       proyectos {
         nombre
         fase
