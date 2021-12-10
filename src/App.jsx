@@ -15,6 +15,7 @@ import Profile from "pages/users/profile";
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
+import PublicLayout from 'layouts/PublicLayout'
 import Register from "pages/auth/register";
 import Login from "pages/auth/login";
 import { AuthContext } from "context/authContext";
@@ -82,7 +83,6 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<PrivateLayout />}>
-                <Route path="" element={<Index />} />
                 <Route path="/progresses/add" element={<AddProgress />} />
                 <Route path="/progresses" element={<IndexProgress />} />
                 <Route path="/projects">
@@ -103,6 +103,9 @@ function App() {
               <Route path="/auth" element={<AuthLayout />}>
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
+              </Route>
+              <Route path="/" element={<PublicLayout />}>
+                <Route path="" element={<Index />} />
               </Route>
             </Routes>
           </BrowserRouter>
