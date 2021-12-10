@@ -77,7 +77,7 @@ function App() {
       });
     }
   }, [authToken]);
-
+  // console.log("Datos Usuario:", userData)
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={{ authToken, setAuthToken, setToken }}>
@@ -94,15 +94,15 @@ function App() {
                 </Route>
                 <Route path="/projects">
                   <Route path="leader" element={<IndexProjectsLeader />} />
+                  {/* <Route path="leader/:_id" element={<IndexProjectsLeader />} /> */}
                   <Route path="admin" element={<IndexProjectsAdmin />} />
                   <Route path="student" element={<IndexProjectsStudent />} />
                   <Route path="add" element={<AddProject />} />
                   <Route path="update" element={<UpdateProject />} />
                 </Route>
                 <Route path="/registrations" element={<IndexRegistrations />} />
-                <Route path="/users" element={<IndexUsers />}>
-                  <Route path="profile/:_id" element={<Profile />} />
-                </Route>
+                <Route path="/users" element={<IndexUsers />} />
+                <Route path="/users/profile/:_id" element={<Profile />} />
               </Route>
               <Route path="/auth" element={<AuthLayout />}>
                 <Route path="register" element={<Register />} />

@@ -7,7 +7,7 @@ const EDITAR_USUARIO = gql`
    $apellido: String!, 
    $identificacion: String!,
    $correo: String!, 
-   $estado: Enum_EstadoUsuario!
+  #  $estado: Enum_EstadoUsuario!
    ){
   updateUser(
     _id: $_id, 
@@ -15,7 +15,7 @@ const EDITAR_USUARIO = gql`
     apellido: $apellido, 
     identificacion: $identificacion, 
     correo: $correo, 
-    estado: $estado
+    # estado: $estado
     ) {
     _id
     nombre
@@ -23,7 +23,7 @@ const EDITAR_USUARIO = gql`
     identificacion
     correo
     rol
-    estado
+    # estado
   }
 }
   

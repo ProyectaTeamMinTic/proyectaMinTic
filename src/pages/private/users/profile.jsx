@@ -92,13 +92,13 @@ const Profile = () => {
           defaultValue={queryData.User.identificacion}
           required={true}
         />
-        <DropDown
+        {/* <DropDown
           label='Estado de la persona:'
           name='estado'
           defaultValue={queryData.User.estado}
           required={true}
           options={Enum_EstadoUsuario}
-        />
+        /> */}
         <PrivateComponent roleList={['ADMINISTRADOR']}>
           <DropDown
             label='Rol de la persona:'
