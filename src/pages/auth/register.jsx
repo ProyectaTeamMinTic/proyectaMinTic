@@ -28,7 +28,7 @@ const Register = () => {
             console.log(dataMutation)
             if (dataMutation.registro.token) {
                 setToken(dataMutation.registro.token);
-                navigate('/');
+                navigate('/main');
             }
         }
     }, [dataMutation, setToken, navigate]);
