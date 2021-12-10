@@ -51,13 +51,14 @@ const IndexProjectsAdmin = () => {
                       <td>{p.fase}</td>
                       {/* <td>{p.estado}</td> */}
                       <td>
-                            <DropDown
+                          <EstadoProyecto p = {p}/>
+                            {/* <DropDown
                             label=""
                             name="estado"
                             defaultValue={p.estado}
                             required={true}
                             options={Enum_EstadoProyecto}
-                            />
+                            /> */}
                         </td>
                       <td></td>
                     </tr>
@@ -100,14 +101,11 @@ const EstadoProyecto = ({ p }) => {
         <option value="" disabled>
           Seleccione un Estado
         </option>
-        <option value="autorizado" className="text-green-500">
-          Autorizado
+        <option value="activo" className="text-green-500">
+          Activo
         </option>
-        <option value="pendiente" className="text-yellow-500">
-          Pendiende
-        </option>
-        <option value="rechazado" className="text-red-500">
-          Rechazado
+        <option value="inactivo" className="text-red-500">
+          Inactivo
         </option>
       </select>
     );
