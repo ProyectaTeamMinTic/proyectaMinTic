@@ -4,7 +4,9 @@ import Navbar from 'components/Navbar'
 const PublicLayout = () => {
     return (
         <div>
-            <Navbar />
+            <header>
+                <Navbar />
+            </header>
             <div>
                 <Outlet />
             </div>

@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div>
       <h1 className="text-center italic antialiased">
-        Sistema de gestión de Proyectos
+        Sistema de gestión de Proyectos Principal
       </h1>
       <div className="grid gap-4 grid-cols-2 justify-items-stretch">
         <div className="pb-20 pt-10">

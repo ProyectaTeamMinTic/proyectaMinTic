@@ -9,25 +9,27 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Index from "pages/Index";
-import IndexUsers from "pages/users";
-import Profile from "pages/users/profile";
+import Landing from "pages/Landing";
+import IndexUsers from "pages/private/users";
+import Profile from "pages/private/users/profile";
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
-import PublicLayout from 'layouts/PublicLayout'
 import Register from "pages/auth/register";
 import Login from "pages/auth/login";
 import { AuthContext } from "context/authContext";
 import jwt_decode from "jwt-decode";
-import AddProgress from "pages/progresses/add";
-import IndexProgress from "pages/progresses/index";
-import IndexProjectsLeader from "pages/projects/indexL";
-import AddProject from "pages/projects/add";
-import UpdateProject from "pages/projects/update";
-import IndexRegistrations from "pages/registrations/index";
-import IndexProjectsAdmin from "pages/projects/indexA";
-import IndexProjectsStudent from "pages/projects/indexS";
+import AddProgress from "pages/private/progresses/add";
+import IndexProgressLeader from "pages/private/progresses/indexL";
+import IndexProgressStudent from "pages/private/progresses/indexS";
+import IndexProjectsLeader from "pages/private/projects/indexL";
+import AddProject from "pages/private/projects/add";
+import UpdateProject from "pages/private/projects/update";
+import IndexRegistrations from "pages/private/registrations/index";
+import IndexProjectsAdmin from "pages/private/projects/indexA";
+import IndexProjectsStudent from "pages/private/projects/indexS";
+import Main from "pages/private/Main";
+import PublicLayout from "layouts/PublicLayout";
 
 // import PrivateRoute from 'components/PrivateRoute';
 
@@ -82,9 +84,16 @@ function App() {
         <UserContext.Provider value={{ userData, setUserData }}>
           <BrowserRouter>
             <Routes>
+              <Route path="" element={<PublicLayout />}>
+                <Route path="" element={<Landing />} />
+              </Route>
               <Route path="/" element={<PrivateLayout />}>
-                <Route path="/progresses/add" element={<AddProgress />} />
-                <Route path="/progresses" element={<IndexProgress />} />
+                <Route path="/main" element={<Main />}></Route>
+                <Route path="/progresses">
+                  <Route path="add" element={<AddProgress />} />
+                  <Route path="leader" element={<IndexProgressLeader />} />
+                  <Route path="student" element={<IndexProgressStudent />} />
+                </Route>
                 <Route path="/projects">
                   <Route path="leader" element={<IndexProjectsLeader />} />
                   <Route path="admin" element={<IndexProjectsAdmin />} />
@@ -92,10 +101,7 @@ function App() {
                   <Route path="add" element={<AddProject />} />
                   <Route path="update" element={<UpdateProject />} />
                 </Route>
-                <Route
-                  path="/registrations"
-                  element={<IndexRegistrations />}
-                />
+                <Route path="/registrations" element={<IndexRegistrations />} />
                 <Route path="/users" element={<IndexUsers />}>
                   <Route path="profile/:_id" element={<Profile />} />
                 </Route>
@@ -103,9 +109,6 @@ function App() {
               <Route path="/auth" element={<AuthLayout />}>
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />
-              </Route>
-              <Route path="/" element={<PublicLayout />}>
-                <Route path="" element={<Index />} />
               </Route>
             </Routes>
           </BrowserRouter>
