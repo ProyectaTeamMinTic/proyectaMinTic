@@ -54,7 +54,7 @@ const Profile = () => {
   if (queryLoading) return <div>Cargando....</div>;
 
   return (
-    <PrivateRoute roleList={['ADMINISTRADOR']}>
+    <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
       <div className='flew flex-col w-full h-full items-center justify-center p-10'>
         <Link to='/users'>
           <i className='fas fa-arrow-left text-gray-600 cursor-pointer font-bold text-xl hover:text-gray-900' />
@@ -66,41 +66,49 @@ const Profile = () => {
           ref={form}
           className='flex flex-col items-center justify-center'
         >
-          <Input
-            label='Nombre de la persona:'
-            type='text'
-            name='nombre'
-            defaultValue={queryData.User.nombre}
+          <PrivateComponent roleList={['ADMINISTRADOR']}>
+            <Input
+              label='Nombre de la persona:'
+              type='text'
+              name='nombre'
+              defaultValue={queryData.User.nombre}
+              required={true}
+            />
+          </PrivateComponent>
+          <PrivateComponent roleList={['ADMINISTRADOR']}>
+            <Input
+              label='Apellido de la persona:'
+              type='text'
+              name='apellido'
+              defaultValue={queryData.User.apellido}
+              required={true}
+            />
+          </PrivateComponent>
+          <PrivateComponent roleList={['ADMINISTRADOR']}>
+            <Input
+              label='Correo de la persona:'
+              type='email'
+              name='correo'
+              defaultValue={queryData.User.correo}
+              required={true}
+            />
+          </PrivateComponent>
+          <PrivateComponent roleList={['ADMINISTRADOR']}>
+            <Input
+              label='Identificación de la persona:'
+              type='text'
+              name='identificacion'
+              defaultValue={queryData.User.identificacion}
+              required={true}
+            />
+          </PrivateComponent>
+          <DropDown
+            label='Estado de la persona:'
+            name='estado'
+            defaultValue={queryData.User.estado}
             required={true}
+            options={Enum_EstadoUsuario}
           />
-          <Input
-            label='Apellido de la persona:'
-            type='text'
-            name='apellido'
-            defaultValue={queryData.User.apellido}
-            required={true}
-          />
-          <Input
-            label='Correo de la persona:'
-            type='email'
-            name='correo'
-            defaultValue={queryData.User.correo}
-            required={true}
-          />
-          <Input
-            label='Identificación de la persona:'
-            type='text'
-            name='identificacion'
-            defaultValue={queryData.User.identificacion}
-            required={true}
-          />
-          {/* <DropDown
-          label='Estado de la persona:'
-          name='estado'
-          defaultValue={queryData.User.estado}
-          required={true}
-          options={Enum_EstadoUsuario}
-        /> */}
           <PrivateComponent roleList={['ADMINISTRADOR']}>
             <DropDown
               label='Rol de la persona:'
@@ -110,7 +118,12 @@ const Profile = () => {
               options={Enum_Rol}
             />
           </PrivateComponent>
-          <span>Rol: {queryData.User.rol}</span>
+          <PrivateComponent roleList={['LIDER']}>
+            <span className="font-bold text-center">Nombre del estudiante</span>
+            <span className="text-center">{queryData.User.nombre}</span>
+            <span className="font-bold text-center">Rol Usuario</span>
+            <span className="text-center">{queryData.User.rol}</span>
+          </PrivateComponent>
           <ButtonLoading
             disabled={Object.keys(formData).length === 0}
             loading={mutationLoading}
