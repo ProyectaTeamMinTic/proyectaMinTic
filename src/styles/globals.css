@@ -5,9 +5,14 @@
 .sidebar {
   @apply w-64 bg-gray-200 shadow flex-col justify-between;
 }
-
+.navbar {
+  @apply w-full bg-gray-900 shadow flex-row justify-between items-center;
+}
+.navbarResponsive{
+  @apply w-64 bg-gray-900 shadow flex-col justify-between;
+}
 .sidebar-route {
-  @apply rounded-md flex w-full justify-between cursor-pointer items-center m-3 p-3;
+  @apply rounded-md flex w-full justify-between cursor-pointer items-center m-3 p-3 border-t-2 border-b-2;
 }
 
 .input {

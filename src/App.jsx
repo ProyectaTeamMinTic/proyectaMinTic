@@ -10,6 +10,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Landing from "pages/Landing";
+import About from "pages/About"
 import IndexUsers from "pages/private/users";
 import Profile from "pages/private/users/profile";
 import "styles/globals.css";
@@ -87,6 +88,7 @@ function App() {
             <Routes>
               <Route path="" element={<PublicLayout />}>
                 <Route path="" element={<Landing />} />
+                <Route path="/about" element={<About />} />
               </Route>
               <Route path="/" element={<PrivateLayout />}>
                 <Route path="/main" element={<Main />}></Route>

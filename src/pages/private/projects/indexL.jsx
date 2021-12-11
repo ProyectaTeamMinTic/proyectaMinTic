@@ -1,5 +1,5 @@
 import ButtonLoading from "components/ButtonLoading";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // import { toast } from 'react-toastify';
@@ -10,18 +10,20 @@ import { useUser } from "context/userContext";
 
 const IndexProjectsLeader = () => {
   const { userData } = useUser();
+  const { userId, setUserId } = useState("");
 
-  useEffect(() => {
-    const userId = userData._id;
-    console.log("data servidor proyecta", userId);
-  }, [userData]);
+  //   useEffect(() => {
+  //     const userId = userData._id;
+  //   }, [userData]);
 
-  const { _id } = useParams()
+  //   const { _id } = useParams()
 
   const { data, error, loading } = useQuery(GET_PROJECTSL, {
+    // userId: userData._id,
+    variables: { _id: "61ae7ccd34a41349bf2a2b57" },
+  });
 
-  },
-  );
+  console.log("data servidor proyecta", userId);
   useEffect(() => {
     if (error) {
       toast.error("Error consultando los usuarios");

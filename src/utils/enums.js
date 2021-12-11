@@ -10,4 +10,9 @@ const Enum_EstadoUsuario = {
   NO_AUTORIZADO: 'No autorizado',
 };
 
-export { Enum_Rol, Enum_EstadoUsuario };
+const Enum_EstadoProyecto = {
+  INACTIVO: 'Inactivo',
+  ACTIVO: 'Activo',
+};
+
+export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto };
