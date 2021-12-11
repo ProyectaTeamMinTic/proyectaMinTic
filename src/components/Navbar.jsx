@@ -63,7 +63,7 @@ const ResponsiveNavbar = () => {
     return (
         <div>
             <div
-                className="navbarResponsive h-full z-40 absolute md:h-full sm:hidden transition duration-150 ease-in-out"
+                className="navbarResponsive h-full z-40 absolute md:h-full md:hidden transition duration-150 ease-in-out"
                 id="mobile-nav"
             >
                 <div className="px-8 ">

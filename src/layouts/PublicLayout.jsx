@@ -5,7 +5,7 @@ const PublicLayout = () => {
     return (
         <div className="flex flex-row md:flex-col flex-no-wrap h-screen">
             <Navbar />
-            <section className="w-full min-h-screen bg-gray-200 font-sans relative">
+            <section className="w-full min-h-screen bg-gray-200 font-sans relative overflow-y-scroll">
                 <Outlet />
             </section>
         </div>
