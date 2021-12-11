@@ -1,10 +1,13 @@
+import PrivateRoute from 'components/PrivateRoute'
 import React from 'react'
 
 const IndexProjectsStudent = () => {
     return (
-        <div>
-            IndexProjects - Principal Proyectos Estudiante
-        </div>
+        <PrivateRoute roleList={['ESTUDIANTE']}>
+            <div>
+                IndexProjects - Principal Proyectos Estudiante
+            </div>
+        </PrivateRoute>
     )
 }
 

@@ -32,7 +32,6 @@ import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
 
-// import PrivateRoute from 'components/PrivateRoute';
 
 const httpLink = createHttpLink({
   // uri: "http://localhost:4000/graphql",

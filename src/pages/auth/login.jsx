@@ -18,13 +18,12 @@ const Login = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-
         login({
             variables: formData,
         });
     };
-
     useEffect(() => {
+        // console.log('data mutation', dataMutation);
         if (dataMutation) {
             if (dataMutation.login.token) {
                 setToken(dataMutation.login.token);
