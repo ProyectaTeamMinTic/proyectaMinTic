@@ -51,7 +51,7 @@ const Profile = () => {
     }
   }, [queryError, mutationError]);
 
-  if (queryLoading) return <div>Cargando....</div>;
+  if (queryLoading) return <div>Cargando datos....</div>;
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
