@@ -13,20 +13,13 @@ import ReactLoading from 'react-loading';
 
 const IndexProjectsLeader = () => {
   const { userData } = useUser();
-  const { userId, setUserId } = useState("");
+  const id = userData._id;
 
-  //   useEffect(() => {
-  //     const userId = userData._id;
-  //   }, [userData]);
-
-  //   const { _id } = useParams()
-
+  console.log("data servidor proyecta", id);
   const { data, error, loading } = useQuery(GET_PROJECTSL, {
-    // userId: userData._id,
-    variables: { _id: "61ae7ccd34a41349bf2a2b57" },
+    variables: { id },
   });
 
-  console.log("data servidor proyecta", userId);
   useEffect(() => {
     if (error) {
       toast.error("Error consultando los usuarios");

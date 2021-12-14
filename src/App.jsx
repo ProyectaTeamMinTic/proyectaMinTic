@@ -92,7 +92,7 @@ function App() {
               </Route>
               <Route path="/" element={<PrivateLayout />}>
                 <Route path="/main/" element={<Main />}></Route>
-                <Route path="/profile" element={<Profile />}
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/progresses/">
                   <Route path="add/" element={<AddProgress />} />
                   <Route path="leader/" element={<IndexProgressLeader />} />

@@ -14,23 +14,23 @@ const Profile = () => {
             </Link>
             <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Editar Usuario</h1>
             <form
-                onSubmit={submitForm}
-                onChange={updateFormData}
-                ref={form}
+                // onSubmit={submitForm}
+                // onChange={updateFormData}
+                // ref={form}
                 className='flex flex-col items-center justify-center'
             >
                 <Input
                     label='Nombre de la persona:'
                     type='text'
                     name='nombre'
-                    defaultValue={queryData.User.nombre}
+                    // defaultValue={queryData.User.nombre}
                     required={true}
                 />
                 <Input
                     label='Apellido de la persona:'
                     type='text'
                     name='apellido'
-                    defaultValue={queryData.User.apellido}
+                    // defaultValue={queryData.User.apellido}
                     required={true}
                 />
 
@@ -38,19 +38,20 @@ const Profile = () => {
                     label='Correo de la persona:'
                     type='email'
                     name='correo'
-                    defaultValue={queryData.User.correo}
+                    // defaultValue={queryData.User.correo}
                     required={true}
                 />
                 <Input
                     label='password'
                     type='text'
                     name='password'
-                    defaultValue={queryData.User.password}
+                    // defaultValue={queryData.User.password}
                     required={true}
                 />
                 <ButtonLoading
-                    disabled={Object.keys(formData).length === 0}
-                    loading={mutationLoading}
+                    // disabled={Object.keys(formData).length === 0}
+                    // loading={mutationLoading}
+                    loading={false}
                     text='Confirmar'
                 />
             </form>

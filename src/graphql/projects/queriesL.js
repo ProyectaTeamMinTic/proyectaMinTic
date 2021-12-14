@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 const GET_PROJECTSL = gql`
-query User($_id: String!) {
+query User($id: String!) {
     User(_id: $id) {
       proyectos {
         nombre
