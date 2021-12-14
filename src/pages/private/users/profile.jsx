@@ -51,7 +51,9 @@ const Profile = () => {
     }
   }, [queryError, mutationError]);
 
-  if (queryLoading) return <div>Cargando datos...</div>;
+  if (queryLoading) return <div>
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={667} width={375} />;
+  </div>;
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>

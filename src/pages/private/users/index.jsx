@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { Enum_Rol, Enum_EstadoUsuario } from 'utils/enums';
 import PrivateRoute from 'components/PrivateRoute';
+import ReactLoading from 'react-loading';
 
 const IndexUsers = () => {
   const { data, error, loading } = useQuery(GET_USUARIOS);
@@ -19,7 +20,9 @@ const IndexUsers = () => {
     }
   }, [error]);
 
-  if (loading) return <div>Cargando....</div>;
+  if (loading) return <div>
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={667} width={375} />;
+  </div>
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>
@@ -63,7 +66,7 @@ const IndexUsers = () => {
                 })}
               </>
             ) : (
-              <div>No autorizado</div>
+              <div>No estas autorizado para ver esta pagina</div>
             )}
           </tbody>
         </table>

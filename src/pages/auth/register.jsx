@@ -66,7 +66,7 @@ const Register = () => {
         </div>
         <ButtonLoading
           disabled={Object.keys(formData).length === 0}
-          loading={false}
+          loading={loadingMutation}
           text="Registrarme"
         />
       </form>
