@@ -19,7 +19,7 @@ const IndexProjectsLeader = () => {
   const { data, error, loading } = useQuery(GET_PROJECTSL, {
     variables: { id },
   });
-
+  console.log(data)
   useEffect(() => {
     if (error) {
       toast.error("Error consultando los usuarios");
@@ -44,30 +44,33 @@ const IndexProjectsLeader = () => {
         <table className="tabla">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>ID proyecto</th>
               <th>Nombre Proyecto</th>
               <th>Fase</th>
               <th>Estado</th>
-              <th>Inicio</th>
-              <th>Fin</th>
-              <th>ID Proyecto</th>
+              <th>Fecha inicio</th>
+              <th>Fecha fin</th>
               <th>Actualizar</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                {/* <Link> */}
-                {/* </Link> */}
-              </td>
-            </tr>
+            {data.User.proyectos.map((p) => {
+              return (
+                < tr key={p._id}>
+                  <td>{p._id.slice(20)}</td>
+                  <td>{p.nombre}</td>
+                  <td>{p.fase}</td>
+                  <td>{p.estado}</td>
+                  <td>{p.fechaInicio}</td>
+                  <td>{p.fechaFin}</td>
+                  <td>
+                    <Link className='text-decoration: underline' to={`/projects/update/${p._id}`}>
+                      actualizar
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <div className="flex justify-center">
@@ -81,7 +84,7 @@ const IndexProjectsLeader = () => {
           </span>
         </div>
       </div>
-    </PrivateRoute>
+    </PrivateRoute >
   );
 };
 

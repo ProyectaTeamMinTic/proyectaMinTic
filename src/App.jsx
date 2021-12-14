@@ -104,7 +104,7 @@ function App() {
                   <Route path="admin/" element={<IndexProjectsAdmin />} />
                   <Route path="student/" element={<IndexProjectsStudent />} />
                   <Route path="add/" element={<AddProject />} />
-                  <Route path="update/" element={<UpdateProject />} />
+                  <Route path="update/:_id" element={<UpdateProject />} />
                 </Route>
                 <Route path="/registrations/" element={<IndexRegistrations />} />
                 <Route path="/users/" element={<IndexUsers />} />
