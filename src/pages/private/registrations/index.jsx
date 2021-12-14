@@ -25,7 +25,16 @@ const IndexRegistrations = () => {
               <th>F. Egreso</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </PrivateRoute>

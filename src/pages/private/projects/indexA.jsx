@@ -5,8 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_PROJECTSA } from "graphql/projects/queriesA";
 import { Enum_EstadoProyecto } from "utils/enums";
 import { UPDATE_STATE_PROJECT } from "graphql/projects/mutationsA";
-import PrivateRoute from 'components/PrivateRoute';
-
+import PrivateRoute from "components/PrivateRoute";
 
 const IndexProjectsAdmin = () => {
   const { data, error, loading } = useQuery(GET_PROJECTSA);
@@ -24,7 +23,7 @@ const IndexProjectsAdmin = () => {
   if (loading) return <div>Cargando....</div>;
 
   return (
-    <PrivateRoute roleList={['ADMINISTRADOR']}>
+    <PrivateRoute roleList={["ADMINISTRADOR"]}>
       <div>
         <div>
           <div>
@@ -77,7 +76,5 @@ const IndexProjectsAdmin = () => {
     </PrivateRoute>
   );
 };
-
-
 
 export default IndexProjectsAdmin;
