@@ -6,6 +6,8 @@ import { GET_PROJECTSA } from "graphql/projects/queriesA";
 import { Enum_EstadoProyecto } from "utils/enums";
 import { UPDATE_STATE_PROJECT } from "graphql/projects/mutationsA";
 import PrivateRoute from 'components/PrivateRoute';
+import ReactLoading from 'react-loading';
+
 
 
 const IndexProjectsAdmin = () => {
@@ -21,7 +23,9 @@ const IndexProjectsAdmin = () => {
     }
   }, [error]);
 
-  if (loading) return <div>Cargando....</div>;
+  if (loading) return <div>
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={667} width={375} />;
+  </div>;
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR']}>

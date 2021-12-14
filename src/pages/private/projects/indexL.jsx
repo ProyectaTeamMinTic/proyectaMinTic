@@ -8,6 +8,8 @@ import { useQuery, useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useUser } from "context/userContext";
 import PrivateRoute from "components/PrivateRoute";
+import ReactLoading from 'react-loading';
+
 
 const IndexProjectsLeader = () => {
   const { userData } = useUser();
@@ -31,7 +33,9 @@ const IndexProjectsLeader = () => {
     }
   }, [error]);
 
-  if (loading) return <div>Cargando....</div>;
+  if (loading) return <div>
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={667} width={375} />;
+  </div>;
 
   return (
     <PrivateRoute roleList={['LIDER']}>
