@@ -12,6 +12,8 @@ import { Enum_EstadoUsuario } from 'utils/enums';
 import { Enum_Rol } from 'utils/enums';
 import PrivateComponent from 'components/PrivateComponent';
 import PrivateRoute from 'components/PrivateRoute';
+import ReactLoading from 'react-loading';
+
 
 const Profile = () => {
   const { form, formData, updateFormData } = useFormData(null);
