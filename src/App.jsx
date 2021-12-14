@@ -12,7 +12,7 @@ import { setContext } from "@apollo/client/link/context";
 import Landing from "pages/Landing";
 import About from "pages/About"
 import IndexUsers from "pages/private/users";
-import Profile from "pages/private/users/profile";
+import EditAdmin from "pages/private/users/editAdmin";
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
@@ -106,7 +106,7 @@ function App() {
                 </Route>
                 <Route path="/registrations" element={<IndexRegistrations />} />
                 <Route path="/users" element={<IndexUsers />} />
-                <Route path="/users/profile/:_id" element={<Profile />} />
+                <Route path="/users/editAdmin/:_id" element={<EditAdmin />} />
               </Route>
               <Route path="/auth" element={<AuthLayout />}>
                 <Route path="register" element={<Register />} />
