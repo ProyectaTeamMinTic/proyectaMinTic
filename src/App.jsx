@@ -13,6 +13,7 @@ import Landing from "pages/Landing";
 import About from "pages/About"
 import IndexUsers from "pages/private/users";
 import EditAdmin from "pages/private/users/editAdmin";
+import Profile from "pages/private/users/profile"
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
@@ -90,22 +91,23 @@ function App() {
                 <Route path="/about" element={<About />} />
               </Route>
               <Route path="/" element={<PrivateLayout />}>
-                <Route path="/main" element={<Main />}></Route>
-                <Route path="/progresses">
-                  <Route path="add" element={<AddProgress />} />
-                  <Route path="leader" element={<IndexProgressLeader />} />
-                  <Route path="student" element={<IndexProgressStudent />} />
+                <Route path="/main/" element={<Main />}></Route>
+                <Route path="/profile" element={<Profile />}
+                <Route path="/progresses/">
+                  <Route path="add/" element={<AddProgress />} />
+                  <Route path="leader/" element={<IndexProgressLeader />} />
+                  <Route path="student/" element={<IndexProgressStudent />} />
                 </Route>
-                <Route path="/projects">
-                  <Route path="leader" element={<IndexProjectsLeader />} />
+                <Route path="/projects/">
+                  <Route path="leader/" element={<IndexProjectsLeader />} />
                   {/* <Route path="leader/:_id" element={<IndexProjectsLeader />} /> */}
-                  <Route path="admin" element={<IndexProjectsAdmin />} />
-                  <Route path="student" element={<IndexProjectsStudent />} />
-                  <Route path="add" element={<AddProject />} />
-                  <Route path="update" element={<UpdateProject />} />
+                  <Route path="admin/" element={<IndexProjectsAdmin />} />
+                  <Route path="student/" element={<IndexProjectsStudent />} />
+                  <Route path="add/" element={<AddProject />} />
+                  <Route path="update/" element={<UpdateProject />} />
                 </Route>
-                <Route path="/registrations" element={<IndexRegistrations />} />
-                <Route path="/users" element={<IndexUsers />} />
+                <Route path="/registrations/" element={<IndexRegistrations />} />
+                <Route path="/users/" element={<IndexUsers />} />
                 <Route path="/users/editAdmin/:_id" element={<EditAdmin />} />
               </Route>
               <Route path="/auth" element={<AuthLayout />}>
