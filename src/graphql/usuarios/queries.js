@@ -24,6 +24,7 @@ const GET_USUARIO = gql`
     correo
     rol
     estado
+    foto
   }
 }
 `;

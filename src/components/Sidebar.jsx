@@ -8,6 +8,7 @@ const SidebarLinks = () => {
   return (
     <ul className="mt-12">
       <SidebarRoute to="/main" title="Inicio" icon="fas fa-home" />
+      <SidebarRoute to="/profile" title="Perfil" icon="fas fa-user-circle" />
       <PrivateComponent roleList={['ADMINISTRADOR', 'LIDER']}>
         <SidebarRoute to="/users" title="Usuarios" icon="fas fa-users" />
       </PrivateComponent>
@@ -39,8 +40,11 @@ const SidebarLinks = () => {
           icon="far fa-address-card"
         />
       </PrivateComponent>
-      <PrivateComponent roleList={['ESTUDIANTE', 'LIDER']}>
-        <SidebarRoute to="/progresses/leader" title="Avances" icon="fas fa-tasks" />
+      <PrivateComponent roleList={['LIDER']}>
+        <SidebarRoute to="/progresses/leader" title="AvancesL" icon="fas fa-tasks" />
+      </PrivateComponent>
+      <PrivateComponent roleList={['ESTUDIANTE']}>
+        <SidebarRoute to="/progresses/student" title="AvancesE" icon="fas fa-tasks" />
       </PrivateComponent>
       <Logout />
     </ul>

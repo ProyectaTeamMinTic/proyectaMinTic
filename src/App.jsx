@@ -32,11 +32,11 @@ import IndexProjectsAdmin from "pages/private/projects/indexA";
 import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
-
+import ProgressProfile from 'pages/private/progresses/progressProfile'
 
 const httpLink = createHttpLink({
-  // uri: "http://localhost:4000/graphql",
-  uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
+  uri: "http://localhost:4000/graphql",
+  // uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -94,9 +94,10 @@ function App() {
                 <Route path="/main/" element={<Main />}></Route>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/progresses/">
-                  <Route path="add/" element={<AddProgress />} />
+                  <Route path="add/:_id" element={<AddProgress />} />
                   <Route path="leader/" element={<IndexProgressLeader />} />
                   <Route path="student/" element={<IndexProgressStudent />} />
+                  <Route path="update/:_id" element={<ProgressProfile />} />
                 </Route>
                 <Route path="/projects/">
                   <Route path="leader/" element={<IndexProjectsLeader />} />

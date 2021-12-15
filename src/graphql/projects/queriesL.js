@@ -13,6 +13,21 @@ query User($id: String!) {
       }
     }
   }
-`
+`;
 
-export { GET_PROJECTSL }
+const GET_PROJECTSL_PROGRESS = gql`
+query Project($id: String!) {
+  Project(_id: $id) {
+    _id
+    avances {
+      descripcion
+      fecha
+      creadoPor {
+        _id
+      }
+    }
+  }
+}
+`;
+
+export { GET_PROJECTSL, GET_PROJECTSL_PROGRESS }

@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import PrivateRoute from 'components/PrivateRoute';
+import PrivateComponent from 'components/PrivateComponent'
 import ReactLoading from 'react-loading';
 import { useUser } from "context/userContext";
 
@@ -14,7 +15,7 @@ const IndexProgressLeader = () => {
     const { data, error, loading } = useQuery(GET_PROGRESSL, {
         variables: { id },
     });
-    console.log(data)
+    console.log('datos proyectos', data)
 
     useEffect(() => {
         console.log('data servidor', data);
@@ -38,10 +39,8 @@ const IndexProgressLeader = () => {
                 <table className="tabla">
                     <thead>
                         <tr>
-                            <th>Nombre proyectos</th>
-                            <th>Avances</th>
-                            <th>Creado Por</th>
-                            <th>Observaciones</th>
+                            <th>ID proyecto</th>
+                            <th>Nombre proyecto</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
@@ -49,7 +48,15 @@ const IndexProgressLeader = () => {
                         {data.User.proyectos.map((p) => {
                             return (
                                 <tr key={p._id}>
+                                    <td>{p._id}</td>
                                     <td>{p.nombre}</td>
+                                    <td>
+                                        <PrivateComponent roleList={['ESTUDIANTE']}>
+                                            <Link to={`/progresses/update/${p._id}`}>
+                                                <i className='fas fa-plus text-yellow-600 hover:text-yellow-400 cursor-pointer' />
+                                            </Link>
+                                        </PrivateComponent>
+                                    </td>
                                 </tr>
                             )
                         })}
