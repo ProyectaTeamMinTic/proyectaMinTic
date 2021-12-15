@@ -1,10 +1,62 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { GET_PROGRESSL } from 'graphql/progresses/queriesL'
+import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import PrivateRoute from 'components/PrivateRoute';
+import ReactLoading from 'react-loading';
+import { useUser } from "context/userContext";
+
 
 const IndexProgressLeader = () => {
+    const { userData } = useUser();
+    const id = userData._id;
+    const { data, error, loading } = useQuery(GET_PROGRESSL, {
+        variables: { id },
+    });
+    console.log(data)
+
+    useEffect(() => {
+        console.log('data servidor', data);
+    }, [data]);
+    useEffect(() => {
+        if (error) {
+            toast.error('Error consultando los usuarios');
+        }
+    }, [error]);
+    if (loading) return <div className="flex justify-center items-center">
+        <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />;
+    </div>
     return (
-        <div>
-            IndexProgressLeader - Avances
-        </div>
+        <PrivateRoute roleList={['LIDER']}>
+            <div>
+                <div><h3 className="text-center text-2xl font-bold text-gray-900">Avances</h3>
+                    <h5 className="pl-3 font-bold text-gray-900">
+                        Avances registrados en la plataforma{" "}
+                    </h5>
+                </div>
+                <table className="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre proyectos</th>
+                            <th>Avances</th>
+                            <th>Creado Por</th>
+                            <th>Observaciones</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.User.proyectos.map((p) => {
+                            return (
+                                <tr key={p._id}>
+                                    <td>{p.nombre}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </PrivateRoute>
     )
 }
 

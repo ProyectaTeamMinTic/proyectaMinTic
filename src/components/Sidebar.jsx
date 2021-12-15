@@ -37,7 +37,7 @@ const SidebarLinks = () => {
         title="Inscripciones"
         icon="far fa-address-card"
       />
-      <SidebarRoute to="/progresses" title="Avances" icon="fas fa-tasks" />
+      <SidebarRoute to="/progresses/leader" title="Avances" icon="fas fa-tasks" />
       <Logout />
     </ul>
   );

@@ -7,6 +7,7 @@ import { Enum_EstadoProyecto } from "utils/enums";
 import { UPDATE_STATE_PROJECT } from "graphql/projects/mutationsA";
 import PrivateRoute from 'components/PrivateRoute';
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom';
 
 
 
@@ -22,6 +23,8 @@ const IndexProjectsAdmin = () => {
       toast.error("Error consultando los proyectos");
     }
   }, [error]);
+
+  //FALTA FUNCIONALIDAD LINKS(VER) Y DROPDOWN(estado)
 
   if (loading) return <div className="flex justify-center items-center">
     <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />;
@@ -58,15 +61,18 @@ const IndexProjectsAdmin = () => {
                       <td>{p.fase}</td>
                       {/* <td>{p.estado}</td> */}
                       <td>
-                        {/* <DropDown
-                            label=""
-                            name="estado"
-                            defaultValue={p.estado}
-                            required={true}
-                            options={Enum_EstadoProyecto}
-                            /> */}
+                        <DropDown
+                          label=""
+                          name="estado"
+                          defaultValue={p.estado}
+                          required={true}
+                          options={Enum_EstadoProyecto}
+                        />
                       </td>
-                      <td></td>
+                      <td>
+                        {/* <Link>ver</Link> */}
+                        ver
+                      </td>
                     </tr>
                   );
                 })}

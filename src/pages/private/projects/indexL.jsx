@@ -1,7 +1,5 @@
-import ButtonLoading from "components/ButtonLoading";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 // import { toast } from 'react-toastify';
 import { GET_PROJECTSL } from "graphql/projects/queriesL";
 import { useQuery, useMutation } from "@apollo/client";
