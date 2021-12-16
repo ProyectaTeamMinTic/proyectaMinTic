@@ -9,6 +9,7 @@ query User($id: String!) {
       _id
       avances {
         _id
+        fecha
         descripcion
         creadoPor {
           _id

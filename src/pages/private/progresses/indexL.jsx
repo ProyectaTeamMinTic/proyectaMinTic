@@ -51,11 +51,9 @@ const IndexProgressLeader = () => {
                                     <td>{p._id}</td>
                                     <td>{p.nombre}</td>
                                     <td>
-                                        <PrivateComponent roleList={['ESTUDIANTE']}>
-                                            <Link to={`/progresses/update/${p._id}`}>
-                                                <i className='fas fa-plus text-yellow-600 hover:text-yellow-400 cursor-pointer' />
-                                            </Link>
-                                        </PrivateComponent>
+                                        <Link to={`/progresses/indexProgressL/${p._id}`}>
+                                            Ver avances
+                                        </Link>
                                     </td>
                                 </tr>
                             )
