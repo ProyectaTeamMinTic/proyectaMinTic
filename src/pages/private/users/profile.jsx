@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Input from 'components/Input';
 import ButtonLoading from 'components/ButtonLoading';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { EDITAR_USUARIOPROFILE } from 'graphql/usuarios/mutations';
 import { GET_USUARIO } from 'graphql/usuarios/queries';
 import { useQuery, useMutation } from "@apollo/client";
 import { useUser } from "context/userContext";
 import useFormData from 'hooks/useFormData';
+import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 
 
 const Profile = () => {
-    const [editFoto, setEditFoto] = useState(false);
     const { form, formData, updateFormData } = useFormData();
-    const { userData, setUserData } = useUser();
+    const { userData } = useUser();
     const _id = userData._id;
     const [updateUserProfile, { data: mutationData, loading: mutationLoading, error: mutationError }] =
-        useMutation(EDITAR_USUARIOPROFILE);
+        useMutation(EDITAR_USUARIO);
     const {
         data: queryData,
         error: queryError,
@@ -30,7 +29,6 @@ const Profile = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        // delete formData.rol;
         updateUserProfile({
             variables: { _id, ...formData },
         });
@@ -52,7 +50,7 @@ const Profile = () => {
         }
     }, [queryError, mutationError]);
 
-    if (queryLoading) return <div className="flex justify-center items-center">
+    if (queryLoading) return <div className="flex w-full h-full justify-center items-center">
         <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />;
     </div>;
 
@@ -84,19 +82,18 @@ const Profile = () => {
                     defaultValue={queryData.User.apellido}
                     required={true}
                 />
-
+                <Input
+                    label='Identificación de la persona:'
+                    type='text'
+                    name='identificacion'
+                    defaultValue={queryData.User.identificacion}
+                    required={true}
+                />
                 <Input
                     label='Correo'
                     type='email'
                     name='correo'
                     defaultValue={queryData.User.correo}
-                    required={true}
-                />
-                <Input
-                    label='password'
-                    type='text'
-                    name='password'
-                    defaultValue={queryData.User.password}
                     required={true}
                 />
                 <ButtonLoading
