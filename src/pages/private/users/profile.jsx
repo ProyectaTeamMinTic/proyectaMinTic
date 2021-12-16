@@ -10,7 +10,6 @@ import { useUser } from "context/userContext";
 import useFormData from 'hooks/useFormData';
 import { EDITAR_USUARIO } from 'graphql/usuarios/mutations';
 
-
 const Profile = () => {
     const { form, formData, updateFormData } = useFormData();
     const { userData } = useUser();
