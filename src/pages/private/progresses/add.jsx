@@ -35,7 +35,7 @@ const AddProgress = () => {
         if (mutationError) {
             toast.error('Se ha producido un error Creando el avance');
         }
-    }, [mutationData]);
+    }, [mutationData, mutationError]);
 
     if (mutationLoading) return <div className="flex justify-center items-center">
         <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />;
