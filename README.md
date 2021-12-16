@@ -6,21 +6,12 @@ Esto es un modelo de sistema de información que soporte la gestión de proyecto
 ***
 ### demo: https://front-proyecta.herokuapp.com
 ***
-Correos para ver todo el sitio web
-## rol admin:
-admin0@gmail.com
-## password:
-admin0
----
-## rol Lider:
-lidertest@gmail.com
-## password:
-lider123
----
-## rol estudiante:
-student@gmail.com
-## password:
-student
+### Correos para ver todo el sitio web
+| Rol    | Correo           | Password |
+|--------|-----------------|--------|
+|Admin | admin0@gmail.com | admin0 |
+|Lider | lidertest@gmail.com | lider123 |
+|Estudiante | student@gmail.com | student |
 
 
 
