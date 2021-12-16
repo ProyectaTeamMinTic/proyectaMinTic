@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { useUser } from "context/userContext";
 import { toast } from 'react-toastify';
-import { render } from '@testing-library/react';
 
 
 const IndexProgressStudent = () => {
@@ -46,7 +45,7 @@ const IndexProgressStudent = () => {
                         {data.User.inscripciones.map((i) => {
                             return (
                                 <tr key={i._id}>
-                                    <td>{i.proyecto._id}</td>
+                                    <td>{i.proyecto._id.slice(20)}</td>
                                     <td>{i.proyecto.nombre}</td>
                                     <td>
                                         <Link to={`/progresses/add/${i.proyecto._id}`}>

@@ -14,18 +14,17 @@ const AddProgress = () => {
     const { form, formData, updateFormData } = useFormData(null);
 
     const { userData } = useUser();
-    const id = userData._id;
+    const creadoPor = userData._id;
 
     const { _id } = useParams();
-
+    const proyecto = _id;
     const [createProgress, { data: mutationData, error: mutationError, loading: mutationLoading }] = useMutation(CREAR_AVANCE);
-
-    console.log('id proyecto', _id)
-    console.log('id estudiante', id)
+    // console.log('id proyecto', _id)
+    // console.log('id estudiante', id)
     const submitForm = (e) => {
         e.preventDefault();
         createProgress({
-            variables: { _id, id, ...formData },
+            variables: { proyecto, creadoPor, ...formData },
         });
     };
 
@@ -61,9 +60,9 @@ const AddProgress = () => {
                         required
                     />
                     <span>id proyecto</span>
-                    <span>{_id}</span>
+                    <span>{proyecto}</span>
                     <span>id estudiante</span>
-                    <span>{id}</span>
+                    <span>{creadoPor}</span>
                     <ButtonLoading
                         disabled={Object.keys(formData).length === 0}
                         loading={mutationLoading}
