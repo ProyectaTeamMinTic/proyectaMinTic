@@ -16,12 +16,15 @@ query User($id: String!) {
 `;
 
 const GET_PROJECTSL_PROGRESS = gql`
-query Project($id: String!) {
-  Project(_id: $id) {
-    _id
+query Project($_id: String!) {
+  Project(_id: $_id) {
     avances {
-      descripcion
+      _id
       fecha
+      descripcion
+      observaciones {
+        descripcion
+      }
       creadoPor {
         _id
       }

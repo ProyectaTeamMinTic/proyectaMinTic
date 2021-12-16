@@ -6,7 +6,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
 import { GET_PROJECTSL_PROGRESS } from 'graphql/projects/queriesL'
 
-const ProgressProfile = () => {
+const AddObservation = () => {
     const { form, formData, updateFormData } = useFormData(null);
     const { _id } = useParams();
     console.log('id del token', _id)
@@ -54,4 +54,4 @@ const ProgressProfile = () => {
     )
 }
 
-export default ProgressProfile
+export default AddObservation

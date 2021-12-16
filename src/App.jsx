@@ -32,7 +32,7 @@ import IndexProjectsAdmin from "pages/private/projects/indexA";
 import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
-import ProgressProfile from 'pages/private/progresses/progressProfile'
+import AddObservation from 'pages/private/progresses/addObservation'
 import IndexProgressL from "pages/private/progresses/indexProgressL"
 
 const httpLink = createHttpLink({
@@ -98,7 +98,7 @@ function App() {
                   <Route path="add/:_id" element={<AddProgress />} />
                   <Route path="leader/" element={<IndexProgressLeader />} />
                   <Route path="student/" element={<IndexProgressStudent />} />
-                  <Route path="update/:_id" element={<ProgressProfile />} />
+                  <Route path="addObservation/:_id" element={<AddObservation />} />
                   <Route path="indexProgressL/:_id" element={<IndexProgressL />} />
                 </Route>
                 <Route path="/projects/">
