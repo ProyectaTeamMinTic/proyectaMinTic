@@ -24,8 +24,8 @@ const IndexProjectsLeader = () => {
   }, [error]);
 
   if (loading) return <div className="flex justify-center items-center">
-    <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />;
-  </div>;
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />
+  </div>
 
   return (
     <PrivateRoute roleList={['LIDER']}>
@@ -72,12 +72,14 @@ const IndexProjectsLeader = () => {
         </table>
         <div className="flex justify-center">
           <span class="hidden sm:block">
-            <button
-              type="button"
-              class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Registrar nuevo proyecto
-            </button>
+            <Link to="/projects/add/">
+              <button
+                type="button"
+                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Registrar nuevo proyecto
+              </button>
+            </Link>
           </span>
         </div>
       </div>

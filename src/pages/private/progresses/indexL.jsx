@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import PrivateRoute from 'components/PrivateRoute';
-import PrivateComponent from 'components/PrivateComponent'
 import ReactLoading from 'react-loading';
 import { useUser } from "context/userContext";
 
