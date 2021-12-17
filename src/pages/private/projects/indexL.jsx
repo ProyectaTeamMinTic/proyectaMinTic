@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GET_PROJECTSL } from "graphql/projects/queriesL";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useUser } from "context/userContext";
 import PrivateRoute from "components/PrivateRoute";
@@ -19,7 +19,7 @@ const IndexProjectsLeader = () => {
   console.log(data)
   useEffect(() => {
     if (error) {
-      toast.error("Error consultando los usuarios");
+      toast.error("Error consultando los Proyectos");
     }
   }, [error]);
 

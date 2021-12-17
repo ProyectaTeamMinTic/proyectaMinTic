@@ -34,8 +34,8 @@ const AddObservation = () => {
     }, [mutationData, mutationError]);
 
     if (mutationLoading) return <div className="flex justify-center items-center">
-        <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />;
-    </div>;
+        <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />
+    </div>
     return (
         <PrivateRoute roleList={['LIDER']}>
             <div className='flew flex-col w-full h-full items-center justify-center p-10'>

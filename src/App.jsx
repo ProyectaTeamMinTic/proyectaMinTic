@@ -28,16 +28,17 @@ import IndexProjectsLeader from "pages/private/projects/indexL";
 import AddProject from "pages/private/projects/add";
 import UpdateProject from "pages/private/projects/update";
 import IndexRegistrations from "pages/private/registrations/index";
+import IndexL from "pages/private/registrations/indexL";
 import IndexProjectsAdmin from "pages/private/projects/indexA";
 import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
 import AddObservation from 'pages/private/progresses/addObservation'
 import IndexProgressL from "pages/private/progresses/indexProgressL"
-
+import AddObjective from "pages/private/projects/addObjective"
 const httpLink = createHttpLink({
-  // uri: "http://localhost:4000/graphql",
-  uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
+  uri: "http://localhost:4000/graphql",
+  // uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -108,8 +109,11 @@ function App() {
                   <Route path="student/" element={<IndexProjectsStudent />} />
                   <Route path="add/" element={<AddProject />} />
                   <Route path="update/:_id" element={<UpdateProject />} />
+                  <Route path="addObjective/:_id" element={<AddObjective />} />
                 </Route>
+
                 <Route path="/registrations/" element={<IndexRegistrations />} />
+                <Route path="/registrationsL/" element={<IndexL />} />
                 <Route path="/users/" element={<IndexUsers />} />
                 <Route path="/users/editAdmin/:_id" element={<EditAdmin />} />
               </Route>

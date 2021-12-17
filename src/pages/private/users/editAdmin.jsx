@@ -54,8 +54,8 @@ const EditAdmin = () => {
   }, [queryError, mutationError]);
 
   if (queryLoading) return <div className="flex justify-center items-center">
-    <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />;
-  </div>;
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />
+  </div>
 
   return (
     <PrivateRoute roleList={['ADMINISTRADOR', 'LIDER']}>

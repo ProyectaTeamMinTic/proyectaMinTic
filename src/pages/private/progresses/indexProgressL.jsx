@@ -20,8 +20,8 @@ const IndexProgressL = () => {
     }, [error]);
 
     if (loading) return <div className="flex justify-center items-center">
-        <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />;
-    </div>;
+        <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />
+    </div>
     return (
         <PrivateRoute roleList={['LIDER']}>
             <div>

@@ -1,6 +1,5 @@
-import DropDown from 'components/Dropdown';
 import Input from 'components/Input';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ButtonLoading from 'components/ButtonLoading';
 import { Link } from 'react-router-dom';
 import { CREATE_PROJECT } from 'graphql/projects/mutationsL';
@@ -12,12 +11,13 @@ import useFormData from 'hooks/useFormData';
 import { useMutation } from '@apollo/client';
 
 const AddProject = () => {
+    // const [_id] = useState("")
     const { form, formData, updateFormData } = useFormData(null);
     const { userData } = useUser();
     const lider = userData._id;
 
-    const [createProject, { data: mutationData, loading: mutationLoading, error: mutationError }] = useMutation(CREATE_PROJECT);
-
+    const [createProject, { data: mutationData, loading: mutationLoading, error: mutationError, }] = useMutation(CREATE_PROJECT);
+    //(refetch) mirar mas adelante
     const submitForm = (e) => {
         e.preventDefault();
         const presupuesto = parseFloat(formData.presupuesto);
@@ -30,11 +30,13 @@ const AddProject = () => {
     useEffect(() => {
         if (mutationData) {
             toast.success('proyecto creado con exito');
+            // setId(mutationData)
         }
         if (mutationError) {
             toast.error('Se ha producido un error Creando el proyecto');
         }
     }, [mutationData, mutationError]);
+    // console.log('datos proyectos lider', _id._id)
 
     if (mutationLoading) return <div className="flex justify-center items-center">
         <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />
@@ -73,10 +75,13 @@ const AddProject = () => {
                                 loading={mutationLoading}
                                 text='Crear'
                             />
+                            {/* falta crear objetivos */}
+                            {/* <Link to={`/projects/addObjective/${_id}`}> */}
                             <ButtonLoading
-                                disabled=''
-                                text='Cancelar'
+                                disabled={Object.keys(formData).length === 0}
+                                text='Siguiente'
                             />
+                            {/* </Link> */}
                         </div>
                     </form>
                 </div >

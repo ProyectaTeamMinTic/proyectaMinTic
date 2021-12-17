@@ -50,8 +50,8 @@ const Profile = () => {
     }, [queryError, mutationError]);
 
     if (queryLoading) return <div className="flex w-full h-full justify-center items-center">
-        <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />;
-    </div>;
+        <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />
+    </div>
 
     return (
         <div className='w-full h-full items-center justify-center p-10'>
