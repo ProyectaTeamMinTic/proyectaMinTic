@@ -33,10 +33,10 @@ const SidebarLinks = () => {
           icon="fas fa-file-invoice"
         />
       </PrivateComponent>
-      <PrivateComponent roleList={['ESTUDIANTE', 'LIDER']}>
+      <PrivateComponent roleList={['LIDER']}>
         <SidebarRoute
-          to="/registrations"
-          title="Inscripciones"
+          to="/registrations/registrationsL"
+          title="InscripcionesL"
           icon="far fa-address-card"
         />
       </PrivateComponent>

@@ -27,8 +27,8 @@ import IndexProgressStudent from "pages/private/progresses/indexS";
 import IndexProjectsLeader from "pages/private/projects/indexL";
 import AddProject from "pages/private/projects/add";
 import UpdateProject from "pages/private/projects/update";
-import IndexRegistrations from "pages/private/registrations/index";
 import IndexL from "pages/private/registrations/indexL";
+import EditStatus from "pages/private/registrations/editStatus"
 import IndexProjectsAdmin from "pages/private/projects/indexA";
 import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
@@ -111,9 +111,10 @@ function App() {
                   <Route path="update/:_id" element={<UpdateProject />} />
                   <Route path="addObjective/:_id" element={<AddObjective />} />
                 </Route>
-
-                <Route path="/registrations/" element={<IndexRegistrations />} />
-                <Route path="/registrationsL/" element={<IndexL />} />
+                <Route path="/registrations/">
+                  <Route path="registrationsL/" element={<IndexL />} />
+                  <Route path="editStatus/:_id" element={<EditStatus />} />
+                </Route>
                 <Route path="/users/" element={<IndexUsers />} />
                 <Route path="/users/editAdmin/:_id" element={<EditAdmin />} />
               </Route>

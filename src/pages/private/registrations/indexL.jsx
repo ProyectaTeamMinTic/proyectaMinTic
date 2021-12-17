@@ -29,24 +29,34 @@ const IndexL = () => {
                 <tabla className="tabla">
                     <thead>
                         <tr>
-                            <th>ID inscripcion</th>
+                            <th>ID</th>
                             <th>ID proyecto</th>
+                            <th>Proyecto</th>
                             <th>ID estudiante</th>
-                            <th>Estado</th>
+                            <th>Estudiante</th>
                             <th>Fecha Ingreso</th>
                             <th>Fecha Egreso</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.Registrations.map((r) => {
                             return (
                                 <tr key={r._id}>
-                                    <td>{r._id}</td>
-                                    <td>{r.proyecto._id}</td>
-                                    <td>{r.estudiante._id}</td>
-                                    <td>{r.estado}</td>
+                                    <td>{r._id.slice(20)}</td>
+                                    <td>{r.proyecto._id.slice(20)}</td>
+                                    <td>{r.proyecto.nombre}</td>
+                                    <td>{r.estudiante._id.slice(20)}</td>
+                                    <td>{r.estudiante.nombre}</td>
                                     <td>{r.fechaIngreso}</td>
                                     <td>{r.fechaEgreso}</td>
+                                    <td>{r.estado}</td>
+                                    <td>
+                                        <Link to={`/registrations/editStatus/${r._id}`}>
+                                            <i className='fas fa-edit text-green-600 hover:text-green-400 cursor-pointer' />
+                                        </Link>
+                                    </td>
                                 </tr>
                             )
                         })}

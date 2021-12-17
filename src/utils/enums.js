@@ -15,4 +15,10 @@ const Enum_EstadoProyecto = {
   ACTIVO: 'Activo',
 };
 
-export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto };
+const Enum_EstadoInscripcion = {
+  PENDIENTE: 'Pendiente',
+  ACEPTADA: 'Aceptada',
+  RECHAZADA: 'Rechazada',
+};
+
+export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_EstadoInscripcion };

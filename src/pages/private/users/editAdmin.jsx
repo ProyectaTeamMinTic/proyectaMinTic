@@ -18,7 +18,7 @@ import ReactLoading from 'react-loading';
 const EditAdmin = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
-  console.log('id del token', _id)
+
   const {
     data: queryData,
     error: queryError,

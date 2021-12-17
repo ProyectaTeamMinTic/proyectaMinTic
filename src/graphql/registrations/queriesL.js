@@ -1,26 +1,13 @@
 import { gql } from '@apollo/client';
 
-const GET_REGISTRATIONSL = gql`
-query InscripcionesConProyectoYEstudiante {
-  inscripcionesConProyectoYEstudiante {
-    _id
+const GET_REGISTRATIONL = gql`
+query Registration($_id: String!) {
+  Registration(_id: $_id) {
     estado
-    fechaIngreso
-    fechaEgreso
-    proyecto {
-      _id
-      nombre
-      lider {
-        _id
-      }
-    }
-    estudiante {
-      _id
-      nombre
-    }
   }
 }
 `;
+
 
 const GET_REGISTRATIONS = gql`
 query Registrations {
@@ -44,4 +31,4 @@ query Registrations {
 }
 `;
 
-export { GET_REGISTRATIONSL, GET_REGISTRATIONS }
+export { GET_REGISTRATIONL, GET_REGISTRATIONS }
