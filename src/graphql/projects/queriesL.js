@@ -10,6 +10,11 @@ query User($id: String!) {
         estado
         fechaInicio
         fechaFin
+        objetivoGeneral
+        objetivoEspecifico1
+        objetivoEspecifico2
+        objetivoEspecifico3
+        presupuesto
       }
     }
   }

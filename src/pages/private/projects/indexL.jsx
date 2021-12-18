@@ -45,8 +45,13 @@ const IndexProjectsLeader = () => {
               <th>Nombre Proyecto</th>
               <th>Fase</th>
               <th>Estado</th>
+              <th>Obj General</th>
+              <th>Obj esp1</th>
+              <th>Obj esp2</th>
+              <th>Obj esp3</th>
               <th>Fecha inicio</th>
               <th>Fecha fin</th>
+              <th>Presupuesto</th>
               <th>Actualizar</th>
             </tr>
           </thead>
@@ -58,8 +63,13 @@ const IndexProjectsLeader = () => {
                   <td>{p.nombre}</td>
                   <td>{p.fase}</td>
                   <td>{p.estado}</td>
+                  <td>{p.objetivoGeneral}</td>
+                  <td>{p.objetivoEspecifico1}</td>
+                  <td>{p.objetivoEspecifico2}</td>
+                  <td>{p.objetivoEspecifico3}</td>
                   <td>{p.fechaInicio}</td>
                   <td>{p.fechaFin}</td>
+                  <td>{p.presupuesto}</td>
                   <td>
                     <Link className='text-decoration: underline' to={`/projects/update/${p._id}`}>
                       actualizar

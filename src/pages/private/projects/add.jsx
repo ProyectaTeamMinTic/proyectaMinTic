@@ -22,8 +22,12 @@ const AddProject = () => {
         e.preventDefault();
         const presupuesto = parseFloat(formData.presupuesto);
         const nombre = formData.nombre;
+        const objetivoGeneral = formData.general;
+        const objetivoEspecifico2 = formData.especifico2;
+        const objetivoEspecifico1 = formData.especifico1;
+        const objetivoEspecifico3 = formData.especifico3;
         createProject({
-            variables: { lider, nombre, presupuesto },
+            variables: { lider, nombre, presupuesto, objetivoGeneral, objetivoEspecifico1, objetivoEspecifico2, objetivoEspecifico3 },
         });
     };
     console.log(formData)
@@ -67,22 +71,37 @@ const AddProject = () => {
                             name='presupuesto'
                             required={true}
                         />
+                        <Input
+                            label='Objetivo general'
+                            type='text'
+                            name='general'
+                            required={true}
+                        />
+                        <Input
+                            label='Objetivo especifico 1'
+                            type='text'
+                            name='especifico1'
+                            required={true}
+                        />
+                        <Input
+                            label='Objetivo especifico 2'
+                            type='text'
+                            name='especifico2'
+                            required={true}
+                        />
+                        <Input
+                            label='Objetivo especifico 3'
+                            type='text'
+                            name='especifico3'
+                            required={true}
+                        />
                         <span>lider</span>
                         <span>{lider}</span>
-                        <div className='flex justify-around w-full'>
-                            <ButtonLoading
-                                disabled={Object.keys(formData).length === 0}
-                                loading={mutationLoading}
-                                text='Crear'
-                            />
-                            {/* falta crear objetivos */}
-                            {/* <Link to={`/projects/addObjective/${_id}`}> */}
-                            <ButtonLoading
-                                disabled={Object.keys(formData).length === 0}
-                                text='Siguiente'
-                            />
-                            {/* </Link> */}
-                        </div>
+                        <ButtonLoading
+                            disabled={Object.keys(formData).length === 0}
+                            loading={mutationLoading}
+                            text='Crear Proyecto'
+                        />
                     </form>
                 </div >
             </div >
