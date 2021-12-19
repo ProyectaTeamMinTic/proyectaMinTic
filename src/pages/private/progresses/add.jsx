@@ -19,8 +19,6 @@ const AddProgress = () => {
     const { _id } = useParams();
     const proyecto = _id;
     const [createProgress, { data: mutationData, error: mutationError, loading: mutationLoading }] = useMutation(CREAR_AVANCE);
-    // console.log('id proyecto', _id)
-    // console.log('id estudiante', id)
     const submitForm = (e) => {
         e.preventDefault();
         createProgress({

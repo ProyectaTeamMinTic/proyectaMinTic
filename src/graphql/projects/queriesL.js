@@ -38,4 +38,19 @@ query Project($_id: String!) {
 }
 `;
 
-export { GET_PROJECTSL, GET_PROJECTSL_PROGRESS }
+const GET_PROJECTL = gql`
+query Project($_id: String!) {
+  Project(_id: $_id) {
+    nombre
+    presupuesto
+    objetivoGeneral
+    objetivoEspecifico1
+    objetivoEspecifico2
+    objetivoEspecifico3
+    fase
+    estado
+  }
+}
+`;
+
+export { GET_PROJECTSL, GET_PROJECTSL_PROGRESS, GET_PROJECTL }

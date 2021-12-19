@@ -22,4 +22,17 @@ mutation CreateProject($nombre: String!, $presupuesto: Float!, $lider: String!, 
 }
 `;
 
-export { CREATE_PROJECT }
+const EDIT_PROJECTL = gql`
+mutation UpdateProject($_id: String!, $campos: camposProyectoL) {
+  updateProject(_id: $_id, campos: $campos) {
+    nombre
+    presupuesto
+    objetivoEspecifico1
+    objetivoEspecifico2
+    objetivoEspecifico3
+    objetivoGeneral
+  }
+}
+`;
+
+export { CREATE_PROJECT, EDIT_PROJECTL }
