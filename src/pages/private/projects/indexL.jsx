@@ -71,7 +71,7 @@ const IndexProjectsLeader = () => {
                   <td>{p.fechaFin}</td>
                   <td>{p.presupuesto}</td>
                   <td>
-                    <Link className='text-decoration: underline' to={`/projects/update/${p._id}`}>
+                    <Link className='text-decoration: underline' to={`/projects/updateL/${p._id}`}>
                       actualizar
                     </Link>
                   </td>

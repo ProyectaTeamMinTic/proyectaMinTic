@@ -26,7 +26,9 @@ import IndexProgressLeader from "pages/private/progresses/indexL";
 import IndexProgressStudent from "pages/private/progresses/indexS";
 import IndexProjectsLeader from "pages/private/projects/indexL";
 import AddProject from "pages/private/projects/add";
-import UpdateProject from "pages/private/projects/update";
+import UpdateL from "pages/private/projects/updateL";
+import UpdateStatusA from "pages/private/projects/updateStatusA";
+import UpdatePhaseA from "pages/private/projects/updatePhaseA";
 import IndexL from "pages/private/registrations/indexL";
 import EditStatus from "pages/private/registrations/editStatus"
 import IndexProjectsAdmin from "pages/private/projects/indexA";
@@ -108,8 +110,10 @@ function App() {
                   <Route path="admin/" element={<IndexProjectsAdmin />} />
                   <Route path="student/" element={<IndexProjectsStudent />} />
                   <Route path="add/" element={<AddProject />} />
-                  <Route path="update/:_id" element={<UpdateProject />} />
+                  <Route path="updateL/:_id" element={<UpdateL />} />
                   <Route path="addObjective/:_id" element={<AddObjective />} />
+                  <Route path="updateStatusA/:_id" element={<UpdateStatusA />} />
+                  <Route path="updatePhaseA/:_id" element={<UpdatePhaseA />} />
                 </Route>
                 <Route path="/registrations/">
                   <Route path="registrationsL/" element={<IndexL />} />

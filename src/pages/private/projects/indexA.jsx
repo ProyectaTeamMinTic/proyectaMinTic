@@ -58,16 +58,15 @@ const IndexProjectsAdmin = () => {
                   return (
                     <tr key={p._id}>
                       <td>{p.nombre}</td>
-                      <td>{p.fase}</td>
-                      {/* <td>{p.estado}</td> */}
-                      <td>
-                        <DropDown
-                          label=""
-                          name="estado"
-                          defaultValue={p.estado}
-                          required={true}
-                          options={Enum_EstadoProyecto}
-                        />
+                      <td>{p.fase}
+                        <Link to={`/projects/updatePhaseA/${p._id}`}>
+                          <i className='fas fa-pen text-green-600 hover:text-green-400 cursor-pointer' />
+                        </Link>
+                      </td>
+                      <td>{p.estado}
+                        <Link to={`/projects/updateStatusA/${p._id}`}>
+                          <i className='fas fa-pen text-green-600 hover:text-green-400 cursor-pointer' />
+                        </Link>
                       </td>
                       <td>
                         {/* <Link>ver</Link> */}

@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 import { EDIT_PROJECTL } from 'graphql/projects/mutationsL';
 import { GET_PROJECTL } from 'graphql/projects/queriesL';
 import PrivateRoute from 'components/PrivateRoute';
-import PrivateComponent from 'components/PrivateComponent';
 import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify';
 import { useQuery, useMutation } from '@apollo/client';
@@ -13,7 +12,7 @@ import useFormData from 'hooks/useFormData';
 
 
 
-const UpdateProject = () => {
+const UpdateL = () => {
     const { _id } = useParams();
     const { form, formData, updateFormData } = useFormData(null);
 
@@ -125,4 +124,4 @@ const UpdateProject = () => {
     )
 }
 
-export default UpdateProject
+export default UpdateL
