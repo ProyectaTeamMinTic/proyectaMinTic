@@ -32,8 +32,6 @@ const UpdateL = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        // delete formData.presupuesto;
-        // const presupuesto = Number(formData.presupuesto)
         updateProject({
             variables: { _id, campos: formData, },
         });
