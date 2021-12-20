@@ -15,6 +15,7 @@ const GET_PROJECTA = gql`
 query Project($_id: String!) {
   Project(_id: $_id) {
     estado
+    fase
   }
 }
 `;

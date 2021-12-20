@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GET_PROJECTSL } from "graphql/projects/queriesL";
 import { useQuery } from "@apollo/client";

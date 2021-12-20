@@ -22,10 +22,7 @@ const Enum_EstadoInscripcion = {
 };
 
 const Enum_FaseProyecto = {
-  INICIADO: 'Iniciado',
-  DESARROLLO: 'Desarrollo',
-  TERMINADO: 'Termminado',
-  NULL: 'Null',
+  TERMINADO: 'Terminado',
 }
 
 export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_EstadoInscripcion, Enum_FaseProyecto };

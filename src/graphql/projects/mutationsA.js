@@ -11,4 +11,12 @@ mutation UpdateProjectStateAndSetDate($_id: String!, $campos: camposProyectoA!) 
 }
 `;
 
-export { UPDATE_STATE_PROJECT };
+const UPDATE_PHASE_PROJECT = gql`
+mutation UpdateProjectPhaseAndSetDate($_id: String!, $campos: camposProyectoA!) {
+  updateProjectPhaseAndSetDate(_id: $_id, campos: $campos) {
+    fase
+  }
+}
+`;
+
+export { UPDATE_STATE_PROJECT, UPDATE_PHASE_PROJECT };
