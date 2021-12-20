@@ -3,15 +3,33 @@ import { GET_PROJECTSE } from "graphql/projects/queriesE";
 import React, { useEffect } from 'react'
 import { toast } from "react-toastify";
 import ReactLoading from 'react-loading';
-import { useQuery } from "@apollo/client";
-
+import { useQuery, useMutation } from "@apollo/client";
+import { CREATE_REGISTRATION } from "graphql/registrations/mutationsE"
+import { useUser } from "context/userContext";
 
 const IndexProjectsStudent = () => {
+    const { userData } = useUser();
+    const estudiante = userData._id;
+
     const { data, error, loading } = useQuery(GET_PROJECTSE);
 
+    const [createRegistration, { data: mutationData, loading: mutationLoading, error: mutationError, }] = useMutation(CREATE_REGISTRATION);
+
+    const ejecutarMutacion = (_id) => {
+        const proyecto = _id;
+        createRegistration({
+            variables: { proyecto, estudiante },
+        });
+    };
+
     useEffect(() => {
-        console.log("data proyectos", data);
-    }, [data]);
+        if (mutationData) {
+            toast.success('Incripcion creada con exito');
+        }
+        if (mutationError) {
+            toast.error('Error creando inscripcion');
+        }
+    }, [mutationData, mutationError]);
 
     useEffect(() => {
         if (error) {
@@ -55,7 +73,9 @@ const IndexProjectsStudent = () => {
                                             <td>{p.fase}</td>
                                             <td>{p.estado}</td>
                                             <td>
-                                                <button>Inscribir</button>
+                                                <button
+                                                    onClick={() => ejecutarMutacion(p._id)}
+                                                >Solicitar inscripcion</button>
                                             </td>
                                         </tr>
                                     );

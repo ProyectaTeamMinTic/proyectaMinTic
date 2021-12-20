@@ -21,7 +21,7 @@ const IndexProgressLeader = () => {
     }, [data]);
     useEffect(() => {
         if (error) {
-            toast.error('Error consultando los usuarios');
+            toast.error('Error consultando los proyectos');
         }
     }, [error]);
     if (loading) return <div className="flex justify-center items-center">
