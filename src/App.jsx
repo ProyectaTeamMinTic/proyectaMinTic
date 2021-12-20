@@ -36,7 +36,8 @@ import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
 import AddObservation from 'pages/private/progresses/addObservation'
-import IndexProgressL from "pages/private/progresses/indexProgressL"
+import IndexProgressL from "pages/private/progresses/indexProgressL";
+import IndexOneProgressE from "pages/private/progresses/indexProgressE";
 import AddObjective from "pages/private/projects/addObjective"
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
@@ -103,6 +104,7 @@ function App() {
                   <Route path="student/" element={<IndexProgressStudent />} />
                   <Route path="addObservation/:_id" element={<AddObservation />} />
                   <Route path="indexProgressL/:_id" element={<IndexProgressL />} />
+                  <Route path="indexOneProgressE/" element={<IndexOneProgressE />} />
                 </Route>
                 <Route path="/projects/">
                   <Route path="leader/" element={<IndexProjectsLeader />} />

@@ -10,6 +10,21 @@ query Projects {
     estado
   }
 }
+`;
 
-`
-export { GET_PROJECTSE }
+const GET_PROJECTSE_PROGRESS = gql`
+query Project($id: String!) {
+  Project(_id: $id) {
+    avances {
+      _id
+      fecha
+      descripcion
+      observaciones {
+        _id
+        descripcion
+      }
+    }
+  }
+}
+`;
+export { GET_PROJECTSE, GET_PROJECTSE_PROGRESS }

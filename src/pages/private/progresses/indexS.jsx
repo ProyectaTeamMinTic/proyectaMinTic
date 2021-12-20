@@ -42,19 +42,19 @@ const IndexProgressStudent = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.User.inscripciones.map((i) => {
+                        {/* {data.User.inscripciones.map((i) => {
                             return (
                                 <tr key={i._id}>
                                     <td>{i.proyecto._id.slice(20)}</td>
                                     <td>{i.proyecto.nombre}</td>
                                     <td>
-                                        <Link to={`/progresses/add/${i.proyecto._id}`}>
+                                        <Link to={`/progresses/indexProgressE/${i.proyecto._id}`}>
                                             <i className='fas fa-plus text-green-600 hover:text-green-400 cursor-pointer' />
                                         </Link>
                                     </td>
                                 </tr>
                             )
-                        })}
+                        })} */}
                     </tbody>
                 </tabla>
             </div>
