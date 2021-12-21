@@ -13,8 +13,8 @@ query Projects {
 `;
 
 const GET_PROJECTSE_PROGRESS = gql`
-query Project($id: String!) {
-  Project(_id: $id) {
+query Project($_id: String!) {
+  Project(_id: $_id) {
     avances {
       _id
       fecha

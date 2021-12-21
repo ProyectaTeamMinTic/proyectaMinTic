@@ -24,8 +24,11 @@ const IndexProgressL = () => {
     </div>
     return (
         <PrivateRoute roleList={['LIDER']}>
-            <div>
+            <div className="w-full h-full items-center justify-center p-10">
                 <div>
+                    <Link to="/progresses/leader">
+                        <i className='fas fa-arrow-left text-gray-600 cursor-pointer font-bold text-xl hover:text-gray-900' />
+                    </Link>
                     <h3 className="text-center text-2xl font-bold text-gray-900">
                         Avances
                     </h3>

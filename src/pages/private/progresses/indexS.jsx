@@ -10,9 +10,9 @@ import { toast } from 'react-toastify';
 
 const IndexProgressStudent = () => {
     const { userData } = useUser();
-    const id = userData._id;
+    const _id = userData._id;
     const { data, error, loading } = useQuery(GET_REGISTRATIONSE, {
-        variables: { id },
+        variables: { _id },
     });
     useEffect(() => {
         console.log('data servidor', data);
@@ -27,8 +27,11 @@ const IndexProgressStudent = () => {
     </div>
     return (
         <PrivateRoute roleList={['ESTUDIANTE']}>
-            <div>
-                <div><h3 className="text-center text-2xl font-bold text-gray-900">Avances</h3>
+            <div className="w-full h-full items-center justify-center p-10">
+                <div>
+                    <h3 className="text-center text-2xl font-bold text-gray-900">
+                        Avances
+                    </h3>
                     <h5 className="pl-3 font-bold text-gray-900">
                         Proyectos Inscritos{" "}
                     </h5>
@@ -37,24 +40,24 @@ const IndexProgressStudent = () => {
                     <thead>
                         <tr>
                             <th>ID proyecto</th>
-                            <th>Nombre proyecto</th>
-                            <th>Avance</th>
+                            {/* <th>Nombre proyecto</th> */}
+                            <th>Agregar o editar avances</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {data.User.inscripciones.map((i) => {
+                        {data.User.inscripciones.map((i) => {
                             return (
                                 <tr key={i._id}>
                                     <td>{i.proyecto._id.slice(20)}</td>
-                                    <td>{i.proyecto.nombre}</td>
+                                    {/* <td>{i.proyecto.nombre}</td> */}
                                     <td>
-                                        <Link to={`/progresses/indexProgressE/${i.proyecto._id}`}>
-                                            <i className='fas fa-plus text-green-600 hover:text-green-400 cursor-pointer' />
+                                        <Link to={`/progresses/indexOneProgressE/${i.proyecto._id}`}>
+                                            <i className='fas fa-tasks text-green-600 hover:text-green-400 cursor-pointer' />
                                         </Link>
                                     </td>
                                 </tr>
                             )
-                        })} */}
+                        })}
                     </tbody>
                 </tabla>
             </div>

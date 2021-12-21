@@ -106,7 +106,7 @@ function App() {
                   <Route path="addObservation/:_id" element={<AddObservation />} />
                   <Route path="indexProgressL/:_id" element={<IndexProgressL />} />
                   <Route path="indexOneProgressE/:_id" element={<IndexOneProgressE />} />
-                  <Route path="editOneProgressE/" element={<EditProgressE />} />
+                  <Route path="editOneProgressE/:_id" element={<EditProgressE />} />
                 </Route>
                 <Route path="/projects/">
                   <Route path="leader/" element={<IndexProjectsLeader />} />

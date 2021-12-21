@@ -29,8 +29,11 @@ const IndexProgressLeader = () => {
     </div>
     return (
         <PrivateRoute roleList={['LIDER']}>
-            <div>
-                <div><h3 className="text-center text-2xl font-bold text-gray-900">Avances</h3>
+            <div className="w-full h-full items-center justify-center p-10">
+                <div>
+                    <h3 className="text-center text-2xl font-bold text-gray-900">
+                        Avances
+                    </h3>
                     <h5 className="pl-3 font-bold text-gray-900">
                         Avances registrados en la plataforma{" "}
                     </h5>

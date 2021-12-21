@@ -11,8 +11,8 @@ mutation CreateProgress($descripcion: String!, $proyecto: String!, $creadoPor: S
 `;
 
 const UPDATE_PROGRESS = gql`
-mutation UpdateProgress($id: String!, $descripcion: String!) {
-  updateProgress(_id: $id, descripcion: $descripcion) {
+mutation UpdateProgress($_id: String!, $descripcion: String!) {
+  updateProgress(_id: $_id, descripcion: $descripcion) {
     descripcion
   }
 }

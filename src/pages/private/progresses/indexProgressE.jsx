@@ -11,6 +11,8 @@ const IndexOneProgressE = () => {
         variables: { _id },
     });
 
+    console.log('data E', data)
+
     useEffect(() => {
         if (error) {
             toast.error("Error consultando los avances del proyecto");
@@ -22,8 +24,11 @@ const IndexOneProgressE = () => {
     </div>
     return (
         <PrivateRoute roleList={['ESTUDIANTE']}>
-            <div>
+            <div className="w-full h-full items-center justify-center p-10">
                 <div>
+                    <Link to="/progresses/student/">
+                        <i className="fas fa-arrow-left text-gray-600 cursor-pointer font-bold text-xl hover:text-gray-900" />
+                    </Link>
                     <h3 className="text-center text-2xl font-bold text-gray-900">
                         Avances
                     </h3>
@@ -50,7 +55,7 @@ const IndexOneProgressE = () => {
                                     <td>{a.descripcion}</td>
                                     <td>{a.observaciones.descripcion}</td>
                                     <td>
-                                        <Link to={`/progresses/editOneProgress/${a._id}`}>
+                                        <Link to={`/progresses/editOneProgressE/${a._id}`}>
                                             <i className='fas fa-edit text-green-600 hover:text-green-400 cursor-pointer' />
                                         </Link>
                                     </td>
@@ -59,6 +64,18 @@ const IndexOneProgressE = () => {
                         })}
                     </tbody>
                 </table>
+                <div className="flex justify-center">
+                    <span class="hidden sm:block">
+                        <Link to={`/progresses/add/${_id}`}>
+                            <button
+                                type="button"
+                                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                                Registrar nuevo avance
+                            </button>
+                        </Link>
+                    </span>
+                </div>
             </div>
         </PrivateRoute>
     )
