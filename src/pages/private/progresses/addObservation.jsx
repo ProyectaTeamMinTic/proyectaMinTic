@@ -1,37 +1,35 @@
 import React, { useEffect } from 'react'
+import ReactLoading from 'react-loading';
+import { toast } from 'react-toastify';
+import useFormData from 'hooks/useFormData';
 import { useMutation } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
-import { CREAR_AVANCE } from 'graphql/progresses/mutationsE'
-import Input from 'components/Input';
-import ButtonLoading from 'components/ButtonLoading';
-import useFormData from 'hooks/useFormData';
-import { toast } from 'react-toastify';
+import { CREATE_OBSERVATION } from 'graphql/progresses/mutationsL';
 import PrivateRoute from 'components/PrivateRoute';
-import ReactLoading from 'react-loading';
-import { useUser } from "context/userContext";
+import ButtonLoading from 'components/ButtonLoading';
+import Input from 'components/Input';
 
-const AddProgress = () => {
+
+const AddObservation = () => {
     const { form, formData, updateFormData } = useFormData(null);
-
-    const { userData } = useUser();
-    const creadoPor = userData._id;
-
     const { _id } = useParams();
-    const proyecto = _id;
-    const [createProgress, { data: mutationData, error: mutationError, loading: mutationLoading }] = useMutation(CREAR_AVANCE);
+    const idAvance = _id;
+    const [createObservation, { data: mutationData, loading: mutationLoading, error: mutationError }] =
+        useMutation(CREATE_OBSERVATION);
+
     const submitForm = (e) => {
         e.preventDefault();
-        createProgress({
-            variables: { proyecto, creadoPor, ...formData },
+        createObservation({
+            variables: { idAvance, ...formData },
         });
     };
 
     useEffect(() => {
         if (mutationData) {
-            toast.success('Avance creado con exito');
+            toast.success('Observacion creada con exito');
         }
         if (mutationError) {
-            toast.error('Se ha producido un error Creando el avance');
+            toast.error('Error creando observacion');
         }
     }, [mutationData, mutationError]);
 
@@ -39,12 +37,12 @@ const AddProgress = () => {
         <ReactLoading type='spinningBubbles' color='#16baf9' height={200} width={150} />
     </div>
     return (
-        <PrivateRoute roleList={['ESTUDIANTE']}>
+        <PrivateRoute roleList={['LIDER']}>
             <div className='flew flex-col w-full h-full items-center justify-center p-10'>
-                <Link to='/progresses/student'>
+                <Link to='/progresses/Leader/'>
                     <i className='fas fa-arrow-left text-gray-600 cursor-pointer font-bold text-xl hover:text-gray-900' />
                 </Link>
-                <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Crear Avance</h1>
+                <h1 className='m-4 text-3xl text-gray-800 font-bold text-center'>Crear observacion</h1>
                 <form
                     onSubmit={submitForm}
                     onChange={updateFormData}
@@ -52,15 +50,11 @@ const AddProgress = () => {
                     className='flex flex-col items-center justify-center'
                 >
                     <Input
-                        label='descripcion del avance:'
+                        label='observacion del avance:'
                         type='text'
                         name='descripcion'
                         required
                     />
-                    <span>id proyecto</span>
-                    <span>{proyecto}</span>
-                    <span>id estudiante</span>
-                    <span>{creadoPor}</span>
                     <ButtonLoading
                         disabled={Object.keys(formData).length === 0}
                         loading={mutationLoading}
@@ -72,4 +66,4 @@ const AddProgress = () => {
     )
 }
 
-export default AddProgress
+export default AddObservation

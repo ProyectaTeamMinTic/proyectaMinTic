@@ -26,7 +26,8 @@ const EDITAR_USUARIO = gql`
     estado
   }
 }
-  
 `;
+
+
 
 export { EDITAR_USUARIO };

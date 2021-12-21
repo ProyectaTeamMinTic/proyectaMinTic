@@ -1,37 +1,31 @@
-import ButtonLoading from "components/ButtonLoading";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-// import { toast } from 'react-toastify';
 import { GET_PROJECTSL } from "graphql/projects/queriesL";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useUser } from "context/userContext";
 import PrivateRoute from "components/PrivateRoute";
+import ReactLoading from 'react-loading';
+
 
 const IndexProjectsLeader = () => {
   const { userData } = useUser();
-  const { userId, setUserId } = useState("");
+  const id = userData._id;
 
-  //   useEffect(() => {
-  //     const userId = userData._id;
-  //   }, [userData]);
-
-  //   const { _id } = useParams()
-
+  console.log("data servidor proyecta", id);
   const { data, error, loading } = useQuery(GET_PROJECTSL, {
-    // userId: userData._id,
-    variables: { _id: "61ae7ccd34a41349bf2a2b57" },
+    variables: { id },
   });
-
-  console.log("data servidor proyecta", userId);
+  console.log(data)
   useEffect(() => {
     if (error) {
-      toast.error("Error consultando los usuarios");
+      toast.error("Error consultando los Proyectos");
     }
   }, [error]);
 
-  if (loading) return <div>Cargando....</div>;
+  if (loading) return <div className="flex justify-center items-center">
+    <ReactLoading type='spinningBubbles' color='#16baf9' height={250} width={150} />
+  </div>
 
   return (
     <PrivateRoute roleList={['LIDER']}>
@@ -47,44 +41,59 @@ const IndexProjectsLeader = () => {
         <table className="tabla">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>ID proyecto</th>
               <th>Nombre Proyecto</th>
               <th>Fase</th>
               <th>Estado</th>
-              <th>Inicio</th>
-              <th>Fin</th>
-              <th>ID Proyecto</th>
+              <th>Obj General</th>
+              <th>Obj esp1</th>
+              <th>Obj esp2</th>
+              <th>Obj esp3</th>
+              <th>Fecha inicio</th>
+              <th>Fecha fin</th>
+              <th>Presupuesto</th>
               <th>Actualizar</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                {/* <Link> */}
-                {/* </Link> */}
-              </td>
-            </tr>
+            {data.User.proyectos.map((p) => {
+              return (
+                < tr key={p._id}>
+                  <td>{p._id.slice(20)}</td>
+                  <td>{p.nombre}</td>
+                  <td>{p.fase}</td>
+                  <td>{p.estado}</td>
+                  <td>{p.objetivoGeneral}</td>
+                  <td>{p.objetivoEspecifico1}</td>
+                  <td>{p.objetivoEspecifico2}</td>
+                  <td>{p.objetivoEspecifico3}</td>
+                  <td>{p.fechaInicio}</td>
+                  <td>{p.fechaFin}</td>
+                  <td>{p.presupuesto}</td>
+                  <td>
+                    <Link className='text-decoration: underline' to={`/projects/updateL/${p._id}`}>
+                      actualizar
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <div className="flex justify-center">
           <span class="hidden sm:block">
-            <button
-              type="button"
-              class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Registrar nuevo proyecto
-            </button>
+            <Link to="/projects/add/">
+              <button
+                type="button"
+                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Registrar nuevo proyecto
+              </button>
+            </Link>
           </span>
         </div>
       </div>
-    </PrivateRoute>
+    </PrivateRoute >
   );
 };
 

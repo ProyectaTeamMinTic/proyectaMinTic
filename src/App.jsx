@@ -12,7 +12,8 @@ import { setContext } from "@apollo/client/link/context";
 import Landing from "pages/Landing";
 import About from "pages/About"
 import IndexUsers from "pages/private/users";
-import Profile from "pages/private/users/profile";
+import EditAdmin from "pages/private/users/editAdmin";
+import Profile from "pages/private/users/profile"
 import "styles/globals.css";
 import "styles/tabla.css";
 import AuthLayout from "layouts/AuthLayout";
@@ -25,17 +26,22 @@ import IndexProgressLeader from "pages/private/progresses/indexL";
 import IndexProgressStudent from "pages/private/progresses/indexS";
 import IndexProjectsLeader from "pages/private/projects/indexL";
 import AddProject from "pages/private/projects/add";
-import UpdateProject from "pages/private/projects/update";
-import IndexRegistrations from "pages/private/registrations/index";
+import UpdateL from "pages/private/projects/updateL";
+import UpdateStatusA from "pages/private/projects/updateStatusA";
+import UpdatePhaseA from "pages/private/projects/updatePhaseA";
+import IndexL from "pages/private/registrations/indexL";
+import EditStatus from "pages/private/registrations/editStatus"
 import IndexProjectsAdmin from "pages/private/projects/indexA";
 import IndexProjectsStudent from "pages/private/projects/indexS";
 import Main from "pages/private/Main";
 import PublicLayout from "layouts/PublicLayout";
-
-
+import AddObservation from 'pages/private/progresses/addObservation'
+import IndexProgressL from "pages/private/progresses/indexProgressL";
+import IndexOneProgressE from "pages/private/progresses/indexProgressE";
+import AddObjective from "pages/private/projects/addObjective"
 const httpLink = createHttpLink({
-  // uri: "http://localhost:4000/graphql",
-  uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
+  uri: "http://localhost:4000/graphql",
+  // uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -90,23 +96,33 @@ function App() {
                 <Route path="/about" element={<About />} />
               </Route>
               <Route path="/" element={<PrivateLayout />}>
-                <Route path="/main" element={<Main />}></Route>
-                <Route path="/progresses">
-                  <Route path="add" element={<AddProgress />} />
-                  <Route path="leader" element={<IndexProgressLeader />} />
-                  <Route path="student" element={<IndexProgressStudent />} />
+                <Route path="/main/" element={<Main />}></Route>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/progresses/">
+                  <Route path="add/:_id" element={<AddProgress />} />
+                  <Route path="leader/" element={<IndexProgressLeader />} />
+                  <Route path="student/" element={<IndexProgressStudent />} />
+                  <Route path="addObservation/:_id" element={<AddObservation />} />
+                  <Route path="indexProgressL/:_id" element={<IndexProgressL />} />
+                  <Route path="indexOneProgressE/" element={<IndexOneProgressE />} />
                 </Route>
-                <Route path="/projects">
-                  <Route path="leader" element={<IndexProjectsLeader />} />
+                <Route path="/projects/">
+                  <Route path="leader/" element={<IndexProjectsLeader />} />
                   {/* <Route path="leader/:_id" element={<IndexProjectsLeader />} /> */}
-                  <Route path="admin" element={<IndexProjectsAdmin />} />
-                  <Route path="student" element={<IndexProjectsStudent />} />
-                  <Route path="add" element={<AddProject />} />
-                  <Route path="update" element={<UpdateProject />} />
+                  <Route path="admin/" element={<IndexProjectsAdmin />} />
+                  <Route path="student/" element={<IndexProjectsStudent />} />
+                  <Route path="add/" element={<AddProject />} />
+                  <Route path="updateL/:_id" element={<UpdateL />} />
+                  <Route path="addObjective/:_id" element={<AddObjective />} />
+                  <Route path="updateStatusA/:_id" element={<UpdateStatusA />} />
+                  <Route path="updatePhaseA/:_id" element={<UpdatePhaseA />} />
                 </Route>
-                <Route path="/registrations" element={<IndexRegistrations />} />
-                <Route path="/users" element={<IndexUsers />} />
-                <Route path="/users/profile/:_id" element={<Profile />} />
+                <Route path="/registrations/">
+                  <Route path="registrationsL/" element={<IndexL />} />
+                  <Route path="editStatus/:_id" element={<EditStatus />} />
+                </Route>
+                <Route path="/users/" element={<IndexUsers />} />
+                <Route path="/users/editAdmin/:_id" element={<EditAdmin />} />
               </Route>
               <Route path="/auth" element={<AuthLayout />}>
                 <Route path="register" element={<Register />} />
