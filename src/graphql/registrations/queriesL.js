@@ -12,9 +12,10 @@ query Registration($_id: String!) {
 const GET_REGISTRATIONS = gql`
 query Registrations {
   Registrations {
-    estado
     _id
+    estado
     fechaIngreso
+  fechaIngreso
     fechaEgreso
     proyecto {
       _id

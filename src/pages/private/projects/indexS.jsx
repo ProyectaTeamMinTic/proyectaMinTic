@@ -24,10 +24,10 @@ const IndexProjectsStudent = () => {
 
     useEffect(() => {
         if (mutationData) {
-            toast.success('Incripcion creada con exito');
+            toast.success('Solicitud de inscripcion creada con exito');
         }
         if (mutationError) {
-            toast.error('Error creando inscripcion');
+            toast.error('Error creando la solicitud de inscripcion');
         }
     }, [mutationData, mutationError]);
 

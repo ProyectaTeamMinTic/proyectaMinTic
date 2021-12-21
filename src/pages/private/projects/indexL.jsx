@@ -29,7 +29,7 @@ const IndexProjectsLeader = () => {
 
   return (
     <PrivateRoute roleList={['LIDER']}>
-      <div>
+      <div className="w-full h-full items-center justify-center p-10">
         <div>
           <h3 className="text-center text-2xl font-bold text-gray-900">
             Proyectos

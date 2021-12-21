@@ -20,7 +20,7 @@ const IndexL = () => {
     </div>
     return (
         <PrivateRoute roleList={['LIDER']}>
-            <div>
+            <div className="w-full h-full items-center justify-center p-10">
                 <div><h3 className="text-center text-2xl font-bold text-gray-900">Inscripciones</h3>
                     <h5 className="pl-3 font-bold text-gray-900">
                         Inscripciones a cargo del lider{" "}

@@ -49,6 +49,8 @@ const AddObservation = () => {
                     ref={form}
                     className='flex flex-col items-center justify-center'
                 >
+                    <span>id avance</span>
+                    <span>{_id}</span>
                     <Input
                         label='observacion del avance:'
                         type='text'

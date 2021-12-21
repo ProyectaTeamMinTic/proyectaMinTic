@@ -7,6 +7,7 @@ query User($id: String!) {
   User(_id: $id) {
     proyectos {
       _id
+      nombre
       avances {
         _id
         fecha

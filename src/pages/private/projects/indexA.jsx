@@ -1,10 +1,7 @@
-import DropDown from "components/Dropdown";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECTSA } from "graphql/projects/queriesA";
-import { Enum_EstadoProyecto } from "utils/enums";
-import { UPDATE_STATE_PROJECT } from "graphql/projects/mutationsA";
 import PrivateRoute from 'components/PrivateRoute';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
@@ -48,7 +45,6 @@ const IndexProjectsAdmin = () => {
                 <th>Nombre Proyecto</th>
                 <th>Fase proyecto</th>
                 <th>Estado</th>
-                <th>Detalle</th>
               </tr>
             </thead>
             <tbody>
@@ -67,10 +63,6 @@ const IndexProjectsAdmin = () => {
                         <Link to={`/projects/updateStatusA/${p._id}`}>
                           <i className='fas fa-pen text-green-600 hover:text-green-400 cursor-pointer' />
                         </Link>
-                      </td>
-                      <td>
-                        {/* <Link>ver</Link> */}
-                        ver
                       </td>
                     </tr>
                   );

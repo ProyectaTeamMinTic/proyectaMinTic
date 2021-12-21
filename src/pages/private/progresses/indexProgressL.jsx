@@ -49,14 +49,15 @@ const IndexProgressL = () => {
                     </thead>
                     <tbody>
                         {data.Project.avances.map((a) => {
-                            console.log('info avances', a.observaciones._id)
+                            console.log('info observaciones', a.observaciones[0])
                             return (
                                 <tr key={a._id}>
                                     <td>{a._id.slice(20)}</td>
                                     <td>{a.fecha}</td>
                                     <td>{a.descripcion}</td>
                                     <td>{a.creadoPor._id.slice(20)}</td>
-                                    <td>{a.observaciones._id}</td>
+                                    <td>{a.observaciones.map((o) => { return (<tr key={o._id}><span>{o.descripcion}</span></tr>) })}</td>
+                                    {/* <td>{a.observaciones[0]}</td> */}
                                     <td>
                                         <Link to={`/progresses/addObservation/${a._id}`}>
                                             <i className='fas fa-plus text-green-600 hover:text-green-400 cursor-pointer' />

@@ -19,4 +19,20 @@ query Project($_id: String!) {
   }
 }
 `;
-export { GET_PROJECTSA, GET_PROJECTA }
+
+const GET_PROJECTA_ALL = gql`
+query Project($_id: String!) {
+  Project(_id: $_id) {
+    _id
+    presupuesto
+    fechaInicio
+    fechaFin
+    nombre
+  lider {
+    _id
+    nombre
+  }
+  }
+}
+`;
+export { GET_PROJECTSA, GET_PROJECTA, GET_PROJECTA_ALL }

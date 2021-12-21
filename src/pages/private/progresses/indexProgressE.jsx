@@ -42,7 +42,7 @@ const IndexOneProgressE = () => {
                             <th>ID avance</th>
                             <th>Fecha</th>
                             <th>Descripcion</th>
-                            <th>Observaciones</th>
+                            {/* <th>Observaciones</th> */}
                             <th>Modificar Avance</th>
                         </tr>
                     </thead>
@@ -53,7 +53,7 @@ const IndexOneProgressE = () => {
                                     <td>{a._id.slice(20)}</td>
                                     <td>{a.fecha}</td>
                                     <td>{a.descripcion}</td>
-                                    <td>{a.observaciones.descripcion}</td>
+                                    {/* <td>{a.observaciones.descripcion}</td> */}
                                     <td>
                                         <Link to={`/progresses/editOneProgressE/${a._id}`}>
                                             <i className='fas fa-edit text-green-600 hover:text-green-400 cursor-pointer' />
