@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const EditProgressE = () => {
-    return (
-        <div>
+  return <div>
+      
+  </div>;
+};
 
-        </div>
-    )
-}
-
-export default EditProgressE
+export default EditProgressE;
