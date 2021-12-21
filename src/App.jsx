@@ -40,8 +40,8 @@ import IndexProgressL from "pages/private/progresses/indexProgressL";
 import IndexOneProgressE from "pages/private/progresses/indexProgressE";
 import AddObjective from "pages/private/projects/addObjective"
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/graphql",
-  // uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
+  // uri: "http://localhost:4000/graphql",
+  uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
 });
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
