@@ -10,4 +10,12 @@ mutation CreateProgress($descripcion: String!, $proyecto: String!, $creadoPor: S
 }
 `;
 
-export { CREAR_AVANCE }
+const UPDATE_PROGRESS = gql`
+mutation UpdateProgress($id: String!, $descripcion: String!) {
+  updateProgress(_id: $id, descripcion: $descripcion) {
+    descripcion
+  }
+}
+`;
+
+export { CREAR_AVANCE, UPDATE_PROGRESS }
