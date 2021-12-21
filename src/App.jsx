@@ -39,6 +39,7 @@ import AddObservation from 'pages/private/progresses/addObservation'
 import IndexProgressL from "pages/private/progresses/indexProgressL";
 import IndexOneProgressE from "pages/private/progresses/indexProgressE";
 import AddObjective from "pages/private/projects/addObjective"
+import EditProgressE from "pages/private/progresses/editProgressE";
 const httpLink = createHttpLink({
   uri: "http://localhost:4000/graphql",
   // uri: "https://back-gestion-proyectos.herokuapp.com/graphql",
@@ -104,7 +105,8 @@ function App() {
                   <Route path="student/" element={<IndexProgressStudent />} />
                   <Route path="addObservation/:_id" element={<AddObservation />} />
                   <Route path="indexProgressL/:_id" element={<IndexProgressL />} />
-                  <Route path="indexOneProgressE/" element={<IndexOneProgressE />} />
+                  <Route path="indexOneProgressE/:_id" element={<IndexOneProgressE />} />
+                  <Route path="editOneProgressE/" element={<EditProgressE />} />
                 </Route>
                 <Route path="/projects/">
                   <Route path="leader/" element={<IndexProjectsLeader />} />
