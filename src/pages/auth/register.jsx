@@ -9,11 +9,7 @@ import { REGISTRO } from "graphql/auth/mutations";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router";
 import { useAuth } from "context/authContext";
-<<<<<<< HEAD
-// import { logo } from "../media/logo_blue.png";
-=======
 import logo from "media/logo_blue.png";
->>>>>>> 024b380b764113d702465ef17557196d813d60a5
 
 const Register = () => {
   const { setToken } = useAuth();

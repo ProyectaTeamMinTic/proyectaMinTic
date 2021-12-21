@@ -5,15 +5,11 @@ import { useQuery } from "@apollo/client";
 import { GET_PROJECTSA } from "graphql/projects/queriesA";
 import { Enum_EstadoProyecto } from "utils/enums";
 import { UPDATE_STATE_PROJECT } from "graphql/projects/mutationsA";
-<<<<<<< HEAD
-import PrivateRoute from "components/PrivateRoute";
-=======
 import PrivateRoute from 'components/PrivateRoute';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 
 
->>>>>>> 024b380b764113d702465ef17557196d813d60a5
 
 const IndexProjectsAdmin = () => {
   const { data, error, loading } = useQuery(GET_PROJECTSA);
