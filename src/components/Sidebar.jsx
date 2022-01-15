@@ -83,12 +83,12 @@ const Logo = () => {
 };
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col md:flex-row flex-no-wrap md:h-full">
       {/* Sidebar starts */}
-      <div className="sidebar hidden md:flex">
-        <div className="px-8">
+      <div className="sidebar hidden md:flex h-full">
+        <div className="px-8 h-full">
           <Logo />
           <SidebarLinks />
         </div>
@@ -108,12 +108,12 @@ const Sidebar = () => {
 
 const ResponsiveSidebar = () => {
   return (
-    <div>
+    <div className="h-full">
       <div
         className="sidebar h-full z-40 absolute md:h-full sm:hidden transition duration-150 ease-in-out"
         id="mobile-nav"
       >
-        <div className="px-8">
+        <div className="px-8 h-full">
           <Logo />
           <SidebarLinks />
         </div>
