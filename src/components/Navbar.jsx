@@ -41,14 +41,14 @@ const Logo = () => {
 const Navbar = () => {
     const [open, setOpen] = useState(true);
     return (
-        <div className="flex flex-row md:flex-row flex-no-wrap md:h-ful">
+        <div className="flex flex-row md:flex-row flex-no-wrap md:h-full">
             <div className="navbar hidden md:flex ">
                 {/* <div className="px-8"> */}
                 <Logo />
                 <NavbarLinks />
                 {/* </div> */}
             </div>
-            <div className="flex md:hidden w-full justify-between bg-gray-800 p-2 text-white">
+            <div className=" md:hidden w-full justify-between bg-gray-800 p-2 text-white h-8">
                 <i
                     className={`fas fa-${open ? "times" : "bars"}`}
                     onClick={() => setOpen(!open)}

@@ -2,8 +2,8 @@ import React from 'react'
 
 const Landing = () => {
     return (
-        <div className="mt-4 ml-3 pl-3 flex justify-around">
-            <div>
+        <div className="mt-4 ml-3 pl-3 flex justify-around w-full media">
+            <div className="py-28">
                 <h1 className="text-6xl text-gray-600 mb-2.5 font-serif">Somos<span className="text-blue-400">Proyecta</span></h1>
                 <h3 className="text-blue-400 tracking-wide font-normal">REACT'S DEVELOPER</h3>
                 <div className="">
@@ -15,7 +15,7 @@ const Landing = () => {
                     <a href="https://github.com/ProyectaTeamMinTic" ><i className="fab fa-github"></i></a>
                 </div>
             </div>
-            <div>
+            <div className="py-32">
                 <h2 className="text-6xl text-blue-400 mb-2.5 font-serif">Tec<span className="text-gray-600">nologias</span></h2>
                 <p>Estas son las tecnologias usadas por el equipo proyecta</p>
                 <h5 className="text-blue-400">MERN STACK</h5>

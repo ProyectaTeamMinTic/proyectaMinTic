@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 768px) {
+  .media{
+    @apply flex-col
+  }
+}
+
 .sidebar {
-  @apply w-64 bg-gray-200 shadow flex-col justify-between;
+  @apply w-64 bg-gray-200 shadow flex-col justify-between h-full;
 }
 .navbar {
   @apply w-full bg-gray-900 shadow flex-row justify-between items-center;
